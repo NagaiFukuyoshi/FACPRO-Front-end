@@ -1,0 +1,78 @@
+.recibocaja{
+    padding: 20px 20px;
+    height: 91vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.recibocaja div{
+    padding: 7px 0;
+}
+
+.recibocajaconten{
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-client{
+    border-radius: 5px;
+    border: 1px solid;
+    width: 230px;
+}
+
+.imput-secods{
+    width: 180px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.button-back-save{
+    background-color: var(--botones);
+    color: white;
+    padding: 0.2rem 1rem;
+    border-radius: 10px;
+}
+
+.input-date{
+    border: none;
+    border-bottom: 1px solid black;
+    width: 120px;
+}
+
+.mytable{
+    width: 1100px;
+}
+
+tr{
+    border: none;
+}
+
+.mytable th, 
+.mytable input,
+th{
+    width: 181px;
+}
+
+.headtable{
+    background-color: var(--bs-link-color);
+    text-align: center;
+}
+
+span{
+    font-weight: 650;
+}
+
+.user{
+    border-bottom: 1px solid black;
+    font-weight: 400;
+}
+
+.secondinfor{
+    float: inline-end;
+    text-align: justify;
+}
+
+.total{
+    width: 550px;
+    text-align: end;
+}

@@ -17,16 +17,45 @@ import { AjustecontableComponent } from './modulos/ajustecontable/ajustecontable
 import { SaldosinicialesComponent } from './modulos/saldosiniciales/saldosiniciales.component';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
+import { CrearproductoComponent } from './crearproducto/crearproducto.component';
+import { EditarproductoComponent } from './inventarios/editarproducto/editarproducto.component';
+import { EliminarproductoComponent } from './inventarios/eliminarproducto/eliminarproducto.component';
+import { BuscarproductoComponent } from './inventarios/buscarproducto/buscarproducto.component';
+import { EditarfacturaComponent } from './editarfactura/editarfactura.component';
+import { ConsultarfacturaComponent } from './consultarfactura/consultarfactura.component';
+import { CreartercerosComponent } from './terceros/crearterceros/crearterceros.component';
+import { EditartercerosComponent } from './terceros/editarterceros/editarterceros.component';
+import { EliminartercerosComponent } from './terceros/eliminarterceros/eliminarterceros.component';
+import { BalancepruebaComponent } from './informes/balanceprueba/balanceprueba.component';
+import { EstadoresultadosComponent } from './informes/estadoresultados/estadoresultados.component';
+import { BalancegeneralComponent } from './informes/balancegeneral/balancegeneral.component';
+import { LibroauxiliarcuentaComponent } from './informes/libroauxiliarcuenta/libroauxiliarcuenta.component';
+import { LibroauxiliarterceroComponent } from './informes/libroauxiliartercero/libroauxiliartercero.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  {path: '', component: PrincipalComponent},
+  {path: '', component: LoginComponent},
   {path: 'ajustecontable', component: AjustecontableComponent},
   {path: 'comprobanteegreso', component: ComprobantesegresoComponent},
   {path: 'facturacompra', component: FacturacompraComponent},
   {path: 'facturaventa', component: FacturaventaComponent},
   {path: 'notacontable', component: NotacontableComponent},
   {path: 'recibocaja', component: ReciboscajaComponent},
-  {path: 'saldoinicial', component: SaldosinicialesComponent}
+  {path: 'saldoinicial', component: SaldosinicialesComponent},
+  {path: 'crearproducto', component: CrearproductoComponent},
+  {path: 'editarproducto', component: EditarproductoComponent},
+  {path: 'eliminarproducto', component: EliminarproductoComponent},
+  {path: 'buscarproducto', component: BuscarproductoComponent},
+  {path: 'buscarfactura', component: ConsultarfacturaComponent},
+  {path: 'editarfactura', component: EditarfacturaComponent},
+  {path: 'crearterceros', component: CreartercerosComponent},
+  {path: 'editarterceros', component: EditartercerosComponent},
+  {path: 'eliminarterceros', component: EliminartercerosComponent},
+  {path: 'balanceprueba', component: BalancegeneralComponent},
+  {path: 'estadoresultado', component: EstadoresultadosComponent},
+  {path: 'balancegeneral', component: BalancegeneralComponent},
+  {path: 'libroauxiliarcuenta', component: LibroauxiliarcuentaComponent},
+  {path: 'libroauxiliartercero', component: LibroauxiliarterceroComponent}
   ];
 
 @NgModule({
@@ -42,7 +71,22 @@ const routes: Routes = [
     NotacontableComponent,
     AjustecontableComponent,
     SaldosinicialesComponent,
-    DashboardComponent
+    DashboardComponent,
+    CrearproductoComponent,
+    EditarproductoComponent,
+    EliminarproductoComponent,
+    BuscarproductoComponent,
+    EditarfacturaComponent,
+    ConsultarfacturaComponent,
+    CreartercerosComponent,
+    EditartercerosComponent,
+    EliminartercerosComponent,
+    BalancepruebaComponent,
+    EstadoresultadosComponent,
+    BalancegeneralComponent,
+    LibroauxiliarcuentaComponent,
+    LibroauxiliarterceroComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

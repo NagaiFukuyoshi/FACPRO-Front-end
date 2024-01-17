@@ -38,13 +38,13 @@
                     </a>
                     <div class="collapse" id="collapseContabilidad" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" routerLink="/recibocaja">Recibo de caja</a>
-                            <a class="nav-link" routerLink="/comprobanteegreso">Comprobante de egreso</a>
-                            <a class="nav-link" routerLink="/facturacompra">Factura de compra</a>
-                            <a class="nav-link" routerLink="/facturaventa">Factura de venta</a>
-                            <a class="nav-link" routerLink="/notacontable">Notas contables</a>
-                            <a class="nav-link" routerLink="/ajustecontable">Ajuste contables</a>
-                            <a class="nav-link" routerLink="/saldoinicial">Saldos iniciales</a>
+                            <a class="nav-link" href="recibocaja">Recibo de caja</a>
+                            <a class="nav-link" href="comprobanteegreso">Comprobante de egreso</a>
+                            <a class="nav-link" href="facturacompra">Factura de compra</a>
+                            <a class="nav-link" href="facturaventa">Factura de venta</a>
+                            <a class="nav-link" href="notacontable">Notas contables</a>
+                            <a class="nav-link" href="ajustecontable">Ajuste contables</a>
+                            <a class="nav-link" href="saldoinicial">Saldos iniciales</a>
                         </nav>
                     </div>
                     <!--Inventarios-->
@@ -55,23 +55,23 @@
                     </a>
                     <div class="collapse" id="collapseInventarios" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="">Buscar producto</a>
-                            <a class="nav-link" href="">Editar producto</a>
-                            <a class="nav-link" href="">Eliminar producto</a>
+                            <a class="nav-link" href="buscarproducto">Buscar producto</a>
+                            <a class="nav-link" href="editarproducto">Editar producto</a>
+                            <a class="nav-link" href="eliminarproducto">Eliminar producto</a>
                         </nav>
                     </div>
                     <!--Editar factura-->
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="editarfactura">
                         <div class="sb-nav-link-icon"><i class="fa-solid fa-pen-to-square"></i></div>
                         Editar factura
                     </a>
                     <!--Consultar factura-->
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="buscarfactura">
                         <div class="sb-nav-link-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
                         Consultar factura
                     </a>
                     <!--Crear producto-->
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="crearproducto">
                         <div class="sb-nav-link-icon"><i class="fa-solid fa-cart-plus"></i></div>
                         Crear producto
                     </a>
@@ -83,9 +83,9 @@
                     </a>
                     <div class="collapse" id="collapseTerceros" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="">Crear tercero</a>
-                            <a class="nav-link" href="">Editar tercero</a>
-                            <a class="nav-link" href="">Eliminar tercero</a>
+                            <a class="nav-link" href="crearterceros">Crear tercero</a>
+                            <a class="nav-link" href="editarterceros">Editar tercero</a>
+                            <a class="nav-link" href="eliminarterceros">Eliminar tercero</a>
                         </nav>
                     </div>
                     <!--Reportes-->
@@ -96,11 +96,11 @@
                     </a>
                     <div class="collapse" id="collapseReportes" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                         <nav class="sb-sidenav-menu-nested nav">
-                            <a class="nav-link" href="">Balance de prueba</a>
-                            <a class="nav-link" href="">Estado de resultados</a>
-                            <a class="nav-link" href="">Balance general</a>
-                            <a class="nav-link" href="">Libro auxiliar por cuenta</a>
-                            <a class="nav-link" href="">Libro auxiliar por cuenta por tercero</a>
+                            <a class="nav-link" href="balanceprueba">Balance de prueba</a>
+                            <a class="nav-link" href="estadoresultado">Estado de resultados</a>
+                            <a class="nav-link" href="balancegeneral">Balance general</a>
+                            <a class="nav-link" href="libroauxiliarcuenta">Libro auxiliar por cuenta</a>
+                            <a class="nav-link" href="libroauxiliartercero">Libro auxiliar por cuenta por tercero</a>
                         </nav>
                     </div>
                     <!--Configuración-->
@@ -121,11 +121,102 @@
                     </div>
                 </div>
             </div>
-            <div class="sb-sidenav-footer">
-                <div class="small">Logged in as:</div>
-                Start Bootstrap
-            </div>
         </nav>
     </div>
 <!--contenido-->
-<h1>Factura compra</h1>
+<div class="facturacompra">
+    <h2>Factura de compra N° 001</h2>
+        <div class="facturacompracont">
+            <span>Proveedor </span>
+            <input type="text" required="required" placeholder="Nombre proveedor" class="input-client">
+        </div>
+        <div class="facturacompracont">
+            <span>Fecha de elaboración </span>
+            <input type="date" required="required" class="input-date">
+        </div>
+        <div class="facturacompraconten">
+            <div class="usuario">
+                <span>Usuario: </span>
+                <span class="user">Kevin Andres Arango</span>
+            </div>
+            <div class="imput-secods">
+                <button class="button-back-save"> Atrás</button>
+                <button class="button-back-save"> Guardar</button>
+            </div>
+        </div>
+        <div class="table">
+            <table class="mytable">
+                <thead class="tablefact">
+                    <tr class="headtable">
+                        <th>Código</th>
+                        <th>Nombre del producto</th>
+                        <th>Descripción  del producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>IVA</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody class="tablefacts">
+                    <tr class="infotable">
+                        <th><input type="text" required="required"></th>
+                        <th><input type="text" required="required"></th>
+                        <th><input type="text" required="required"></th>
+                        <th><input type="text" required="required"></th>
+                        <th><input type="text" required="required"></th>
+                        <th><input type="text"></th>
+                        <th><input type="text"></th>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="add">
+                <i class="fa-solid fa-circle-plus"></i>
+            </div>
+            <div class="secondinfor">
+                <div class="total">
+                    <tr class="total2">
+                        <th>Subtotal</th>
+                        <th> </th>
+                        <th>0.00</th>
+                    </tr>
+                </div>
+                <div class="total">
+                    <tr class="total2">
+                        <th>IVA</th>
+                        <th> </th>
+                        <th>0.00</th>
+                    </tr>
+                </div>
+                <div class="total">
+                    <tr class="total2">
+                        <th>Retenciones</th>
+                        <th>
+                            <select name="retenciones" id="retenciones">
+                                <option value="">Compra 2.5%</option>
+                                <option value="">Compra 3.5%</option>
+                                <option value="">ReteIVA 15%</option>
+                            </select>
+                        </th>
+                        <th>0.00</th>
+                    </tr>
+                </div>
+                <div class="total">
+                    <tr class="total2">
+                        <th>Total factura</th>
+                        <th> </th>
+                        <th>0.00</th>
+                    </tr>
+                </div>
+            </div>
+            <div class="metodopago">
+                <label for="option">Método de pago </label>
+                <select name="metododepago" id="metododepago">
+                    <option value="">Crédito</option>
+                    <option value="">Efectivo</option>
+                    <option value="">Bancolombia</option>
+                    <option value="">Davivienda</option>
+                </select>
+            </div>
+            <textarea resize="none" class="Descripcion" name="Descripción" id="Descripción" cols="90" rows="5" placeholder="Descripción"></textarea>
+        </div>   
+</div>

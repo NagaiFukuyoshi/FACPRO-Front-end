@@ -1,0 +1,72 @@
+.editarproducto{
+    padding: 20px 20px;
+    height: 91vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.editarproducto div{
+    padding: 7px 0;
+}
+
+.export{
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-producto{
+    border-radius: 5px;
+    border: 1px solid;
+    width: 230px;
+}
+
+.editarproductocont{
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.formato{
+    width: 460px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.imput-secods{
+    width: 180px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.button-back-save,
+.buscar{
+    background-color: var(--botones);
+    color: white;
+    padding: 0.2rem 1rem;
+    border-radius: 10px;
+}
+
+.mytable{
+    width: 1100px;
+}
+
+tr{
+    border: none;
+}
+
+.mytable th, 
+.mytable input,
+th{
+    font-size: 14px;
+    width: 154px;
+}
+
+.headtable{
+    background-color: var(--bs-link-color);
+    text-align: center;
+}
+
+span{
+    font-weight: 650;
+}
