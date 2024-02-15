@@ -31,7 +31,7 @@
             <div class="sb-sidenav-menu">
                 <div class="nav">
                     <!--Contabilidad-->
-                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseContabilidad" aria-expanded="false" aria-controls="collapseContabilidad">
+                    <a class="nav-link collapsed active" href="#" data-bs-toggle="collapse" data-bs-target="#collapseContabilidad" aria-expanded="false" aria-controls="collapseContabilidad">
                         <div class="sb-nav-link-icon"><i class="fa-solid fa-receipt"></i></div>
                         Contabilidad
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -144,29 +144,81 @@
                 <button class="button-back-save"> Guardar</button>
             </div>
         </div>
-        <div class="table">
+        <div class="table fluid">
             <table class="mytable">
                 <thead class="tablefact">
                     <tr class="headtable">
                         <th>Código</th>
-                        <th>Cuenta contable</th>
-                        <th>Tercero</th>
-                        <th>Descripción</th>
-                        <th>Débito</th>
-                        <th>Crédito</th>
                     </tr>
                 </thead>
                 <tbody class="tablefacts">
                     <tr class="infotable">
                         <th><input type="text" required="required"></th>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="mytable">
+                <thead class="tablefact">
+                    <tr class="headtable">
+                        <th>Cuenta contable</th>
+                    </tr>
+                </thead>
+                <tbody class="tablefacts">
+                    <tr class="infotable">
                         <th><input type="text" required="required"></th>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="mytable">
+                <thead class="tablefact">
+                    <tr class="headtable">
+                        <th>Tercero</th>
+                    </tr>
+                </thead>
+                <tbody class="tablefacts">
+                    <tr class="infotable">
                         <th><input type="text" required="required"></th>
-                        <th><input type="text"></th>
-                        <th><input type="text"></th>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="mytable">
+                <thead class="tablefact">
+                    <tr class="headtable">
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody class="tablefacts">
+                    <tr class="infotable">
                         <th><input type="text"></th>
                     </tr>
                 </tbody>
             </table>
+            <table class="mytable">
+                <thead class="tablefact">
+                    <tr class="headtable">
+                        <th>Débito</th>
+                    </tr>
+                </thead>
+                <tbody class="tablefacts">
+                    <tr class="infotable">
+                        <th><input type="text"></th>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="mytable">
+                <thead class="tablefact">
+                    <tr class="headtable">
+                        <th>Crédito</th>
+                    </tr>
+                </thead>
+                <tbody class="tablefacts">
+                    <tr class="infotable">
+                        <th><input type="text"></th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="foot">
             <div class="add">
                 <i class="fa-solid fa-circle-plus"></i>
             </div>

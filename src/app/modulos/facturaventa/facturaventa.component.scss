@@ -1,16 +1,19 @@
 .facturaventa{
     padding: 20px 20px;
+    width: 80vh;
     height: 91vh;
     display: flex;
     flex-direction: column;
+    max-width: 80vh;
 }
 
 .facturaventa div{
-    padding: 7px 0;
+    padding: 4px 0;
 }
 
 .facturaventaconten{
     display: flex;
+    width: 1100px;
     justify-content: space-between;
 }
 
@@ -39,8 +42,13 @@
     width: 120px;
 }
 
+.table{
+  display: flex;
+  max-width: 80%
+}
+
 .mytable{
-    width: 1100px;
+    width: 110px;;
 }
 
 tr{
@@ -50,8 +58,7 @@ tr{
 .mytable th, 
 .mytable input,
 th{
-    font-size: 14px;
-    width: 154px;
+    width: 155px;
 }
 
 .headtable{
@@ -68,15 +75,21 @@ span{
     font-weight: 400;
 }
 
+.foot{
+  display: flex;
+  width: 1100px;
+  justify-content: space-between;
+}
+
 .secondinfor{
-    float: inline-end;
-    text-align: justify;
+  display: flex;
+  flex-direction: column;
 }
 
 .total{
-    width: 480px;
-    height: 25px;
-    text-align: end;
+  width: 480px;
+  justify-content: end;
+  text-align: end;
 }
 
 .metodopago{
@@ -87,4 +100,92 @@ span{
 
 .metododepago{
     width: 100px;
+}
+
+
+/* Estilos para hacer responsive */
+@media only screen and (max-width: 600px) {
+  .facturaventa{
+    margin-left: -150px;
+  }
+
+  h2{
+    font-size: 19px;
+  }
+
+  .facturaventacont input{
+    width: 250px;
+  }
+
+  .facturaventacont {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .facturaventaconten{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .imput-secods {
+    display: flex;
+    margin-left: 30px;
+  }
+
+  .button-back-save {
+    margin-bottom: 10px;
+  }
+
+  .mytable {
+    overflow-x: auto;
+    display: block;
+    width: 100%;
+  }
+
+  .headtable,
+  .infotable {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .table{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .headtable th,
+  .infotable td,
+  .infotable input {
+    width: 230px;
+    text-align: center;
+  }
+
+  .foot{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .infotable input{
+    width: 240px;
+    margin-left: -5px;
+  }
+
+  .add {
+    text-align: start;
+    margin-top: -30px;
+  }
+
+  .total{
+    font-size: 11px;
+  }
+
+  .total tr,
+  .total th{
+    display: flex;
+    width: 280px;
+  }
+
+  textarea{
+    width: 260px;
+  }
 }

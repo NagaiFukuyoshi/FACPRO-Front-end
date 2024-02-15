@@ -1,8 +1,10 @@
 .ajustec{
     padding: 20px 20px;
+    width: 80vh;
     height: 91vh;
     display: flex;
     flex-direction: column;
+    max-width: 80vh;
 }
 
 .ajustec div{
@@ -11,6 +13,7 @@
 
 .ajustecont{
     display: flex;
+    width: 1100px;
     justify-content: space-between;
 }
 
@@ -26,6 +29,7 @@
     justify-content: space-around;
 }
 
+
 .button-back-save{
     background-color: var(--botones);
     color: white;
@@ -39,8 +43,12 @@
     width: 120px;
 }
 
+.table{
+  display: flex;
+}
+
 .mytable{
-    width: 1100px;
+    width: 110px;
 }
 
 tr{
@@ -67,12 +75,98 @@ span{
     font-weight: 400;
 }
 
+.foot{
+  display: flex;
+  width: 1100px;
+  justify-content: space-between;
+}
+
 .secondinfor{
-    float: inline-end;
-    text-align: justify;
+  display: flex;
+  flex-direction: column;
 }
 
 .total{
     width: 550px;
+    justify-content: end;
     text-align: end;
+}
+
+/* Estilos para hacer responsive */
+@media only screen and (max-width: 600px) {
+  .ajustec{
+    margin-left: -150px;
+  }
+
+  h2{
+    font-size: 19px;
+  }
+
+  .ajustecont input{
+    width: 250px;
+  }
+
+  .ajustecont {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ajusteconten{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .imput-secods {
+    display: flex;
+    margin-left: 30px;
+  }
+
+  .button-back-save {
+    margin-bottom: 10px;
+  }
+
+  .mytable {
+    overflow-x: auto;
+    display: block;
+    width: 100%;
+  }
+
+  .headtable,
+  .infotable {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .table{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .headtable th,
+  .infotable td,
+  .infotable input {
+    width: 230px;
+    text-align: center;
+  }
+
+  .foot{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .infotable input{
+    width: 240px;
+    margin-left: -5px;
+  }
+
+  .add {
+    text-align: start;
+    margin-top: -30px;
+  }
+
+  .total tr,
+  .total th{
+    display: flex;
+    width: 280px;
+  }
 }

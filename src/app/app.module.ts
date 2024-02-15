@@ -34,7 +34,7 @@ import { LibroauxiliarterceroComponent } from './informes/libroauxiliartercero/l
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'ajustecontable', component: AjustecontableComponent},
   {path: 'comprobanteegreso', component: ComprobantesegresoComponent},
   {path: 'facturacompra', component: FacturacompraComponent},
@@ -51,7 +51,7 @@ const routes: Routes = [
   {path: 'crearterceros', component: CreartercerosComponent},
   {path: 'editarterceros', component: EditartercerosComponent},
   {path: 'eliminarterceros', component: EliminartercerosComponent},
-  {path: 'balanceprueba', component: BalancegeneralComponent},
+  {path: 'balanceprueba', component: BalancepruebaComponent},
   {path: 'estadoresultado', component: EstadoresultadosComponent},
   {path: 'balancegeneral', component: BalancegeneralComponent},
   {path: 'libroauxiliarcuenta', component: LibroauxiliarcuentaComponent},

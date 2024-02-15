@@ -89,7 +89,7 @@
                         </nav>
                     </div>
                     <!--Reportes-->
-                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseReportes" aria-expanded="false" aria-controls="collapseReportes">
+                    <a class="nav-link collapsed active" href="#" data-bs-toggle="collapse" data-bs-target="#collapseReportes" aria-expanded="false" aria-controls="collapseReportes">
                         <div class="sb-nav-link-icon"><i class="fa-regular fa-folder"></i></div>
                         Reportes
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -167,26 +167,40 @@
             <button class="button-back-save"> Atrás</button>
         </div>
     </div>
-    <div class="table">
+    <div class="table fluid">
         <table class="mytable">
             <thead class="tablefact">
                 <tr class="headtable">
                     <th>Código</th>
-                    <th>cuenta</th>
-                    <th>Saldo inicial</th>
-                    <th>Débito</th>
-                    <th>Crédito</th>
-                    <th>Saldo final</th>
                 </tr>
             </thead>
             <tbody class="tablefacts">
                 <tr class="infotable">
-                    <th class="thbuscar"></th>
-                    <th class="thbuscar"></th>
-                    <th class="thbuscar"></th>
-                    <th class="thbuscar"></th>
-                    <th class="thbuscar"></th>
-                    <th class="thbuscar"></th>
+                    <th><input type="text" required="required"></th>
+                </tr>
+            </tbody>
+        </table>
+        <table class="mytable">
+            <thead class="tablefact">
+                <tr class="headtable">
+                    <th>Cuenta</th>
+                </tr>
+            </thead>
+            <tbody class="tablefacts">
+                <tr class="infotable">
+                    <th><input type="text" required="required"></th>
+                </tr>
+            </tbody>
+        </table>
+        <table class="mytable">
+            <thead class="tablefact">
+                <tr class="headtable">
+                    <th>Saldo</th>
+                </tr>
+            </thead>
+            <tbody class="tablefacts">
+                <tr class="infotable">
+                    <th><input type="text" required="required"></th>
                 </tr>
             </tbody>
         </table>
