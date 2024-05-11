@@ -10,7 +10,7 @@ import { ReciboscajaComponent } from './modulos/reciboscaja/reciboscaja.componen
 import { SaldosinicialesComponent } from './modulos/saldosiniciales/saldosiniciales.component';
 
 const routes: Routes = [
-  {path: '', component: PrincipalComponent}
+  {path: 'principal', component: PrincipalComponent}
   
 ];
 

@@ -1,5 +1,7 @@
 .auxiliartercero{
     padding: 20px 20px;
+    margin-left: 220px;
+    margin-top: -571px;
     height: 91vh;
     display: flex;
     flex-direction: column;
@@ -58,10 +60,10 @@
 
 .table{
     display: flex;
-  }
-  
+}
+
 .mytable{
-    width: 155px;
+    width: 150px;
 }
 
 tr{
@@ -72,7 +74,7 @@ tr{
 .mytable input,
 th{
     font-size: 14px;
-    width: 155px;
+    width: 150px;
 }
 
 .headtable{
@@ -85,17 +87,18 @@ span{
 }
 
 /* Estilos para hacer responsive */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) 
+{
     .auxiliartercero{
-      margin-left: -150px;
+        margin-left: -150px;
     }
-  
+
     h2{
-      font-size: 19px;
+        font-size: 19px;
     }
-  
+
     .auxiliartercero input{
-      width: 250px;
+        width: 250px;
     }
 
     .auxiliartercerocont{
@@ -128,37 +131,37 @@ span{
         display: flex;
         flex-direction: column;
     }
-  
+
     .mytable {
-      overflow-x: auto;
-      display: block;
-      width: 100%;
+        overflow-x: auto;
+        display: block;
+        width: 100%;
     }
 
     .headtable{
         width: 248px;
     }
-  
+
     .headtable,
     .infotable {
-      display: flex;
-      flex-direction: column;
+        display: flex;
+        flex-direction: column;
     }
-  
+
     .table{
-      display: flex;
-      flex-direction: column;
+        display: flex;
+        flex-direction: column;
     }
-  
+
     .headtable th,
     .infotable td,
     .infotable input {
-      width: 200px;
-      text-align: center;
+        width: 200px;
+        text-align: center;
     }
-  
+
     .infotable input{
-      width: 240px;
-      margin-left: -5px;
+        width: 240px;
+        margin-left: -5px;
     }
-  }
+}

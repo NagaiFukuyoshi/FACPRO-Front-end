@@ -1,24 +1,14 @@
 .balancegeneral{
     padding: 20px 20px;
+    margin-left: 220px;
+    margin-top: -571px;
     height: 91vh;
     display: flex;
     flex-direction: column;
 }
 
 .balancegeneral div{
-    padding: 5px 0;
-}
-
-.headerbalance{
-    display: flex;
-    width: 700px;
-    justify-content: space-between;
-}
-
-.si-no{
-    display: flex;
-    width: 80px;
-    justify-content: space-between;
+    padding: 7px 0;
 }
 
 .export{
@@ -30,6 +20,13 @@
     border-radius: 5px;
     border: 1px solid;
     width: 230px;
+}
+
+.balancegeneralcont{
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .formato{
@@ -54,8 +51,8 @@
 
 .table{
     display: flex;
-  }
-  
+}
+
 .mytable{
     width: 350px;
 }

@@ -34,7 +34,7 @@ import { LibroauxiliarterceroComponent } from './informes/libroauxiliartercero/l
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  {path: 'login', component: LoginComponent},
+  {path: '', component: LoginComponent},
   {path: 'ajustecontable', component: AjustecontableComponent},
   {path: 'comprobanteegreso', component: ComprobantesegresoComponent},
   {path: 'facturacompra', component: FacturacompraComponent},
