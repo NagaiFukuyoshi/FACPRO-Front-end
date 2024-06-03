@@ -26,8 +26,13 @@
     max-width: 80%;
 }
 
-select{
+.tipotercero select,
+.tipodocumento span{
     margin: 0;
+}
+
+select{
+    margin: 0 10px;
     border-radius: 5px;
 }
 
@@ -38,12 +43,8 @@ select{
     max-width: 80%;
 }
 
-.cv span{
-    padding-left: 13px;
-}
-
 .numeroidentificacion input{
-    margin: 0 5px;
+    margin: 0 4px;
     border: none;
     border-bottom: 1px solid black; 
 }

@@ -32,6 +32,8 @@ import { BalancegeneralComponent } from './informes/balancegeneral/balancegenera
 import { LibroauxiliarcuentaComponent } from './informes/libroauxiliarcuenta/libroauxiliarcuenta.component';
 import { LibroauxiliarterceroComponent } from './informes/libroauxiliartercero/libroauxiliartercero.component';
 import { LoginComponent } from './login/login.component';
+import { CrearproveedorComponent } from './terceros/crearproveedor/crearproveedor.component';
+import { CrearusuarioComponent } from './terceros/crearusuario/crearusuario.component';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
@@ -55,7 +57,9 @@ const routes: Routes = [
   {path: 'estadoresultado', component: EstadoresultadosComponent},
   {path: 'balancegeneral', component: BalancegeneralComponent},
   {path: 'libroauxiliarcuenta', component: LibroauxiliarcuentaComponent},
-  {path: 'libroauxiliartercero', component: LibroauxiliarterceroComponent}
+  {path: 'libroauxiliartercero', component: LibroauxiliarterceroComponent},
+  {path: 'crearproveedor', component: CrearproveedorComponent},
+  {path: 'crearusuario', component: CrearusuarioComponent}
   ];
 
 @NgModule({
@@ -86,14 +90,16 @@ const routes: Routes = [
     BalancegeneralComponent,
     LibroauxiliarcuentaComponent,
     LibroauxiliarterceroComponent,
-    LoginComponent
+    LoginComponent,
+    CrearproveedorComponent,
+    CrearusuarioComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
   ],
   providers: [],
   bootstrap: [AppComponent]

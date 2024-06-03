@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProductoService } from 'src/app/servicios/producto.service';
 
 @Component({
   selector: 'app-buscarproducto',
@@ -7,4 +8,18 @@ import { Component } from '@angular/core';
 })
 export class BuscarproductoComponent {
 
+  producto: any;
+  prod:any;
+
+  constructor(private sprod:ProductoService){}
+
+  ngOnInit(): void{
+    this.consulta();
+  }
+
+  consulta(){
+    this.sprod.consulta().subscribe((resultado:any)=>{
+      this.producto = resultado;
+    })
+  }
 }

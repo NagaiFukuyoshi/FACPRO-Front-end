@@ -61,11 +61,13 @@ tr{
     border: none;
 }
 
-.mytable th, 
+.mytable td, 
 .mytable input,
-th{
+td{
     font-size: 14px;
     width: 260px;
+    border-bottom: solid 1px rgb(199, 196, 196);
+    text-align: center;
 }
 
 .headtable{

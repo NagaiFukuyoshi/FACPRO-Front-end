@@ -31,17 +31,6 @@ select{
     border-radius: 5px;
 }
 
-.numeroidentificacion{
-    display: flex;
-    justify-content: space-between;
-    width: 700px;
-    max-width: 80%;
-}
-
-.cv span{
-    padding-left: 13px;
-}
-
 .numeroidentificacion input{
     margin: 0 5px;
     border: none;
@@ -68,13 +57,12 @@ select{
 
 .nombres,
 .apellidos,
-.direccion,
-.ciudad,
-.telefono,
-.email{
+.email,
+.usuario,
+.contraseña{
     display: flex;
     flex-direction: column;
-    width: 330px;
+    width: 450px;
 }
 
 .responsabilidades{

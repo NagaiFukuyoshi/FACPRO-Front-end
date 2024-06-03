@@ -8,7 +8,7 @@
     <div class="buscarproductocont">
         <span>Producto </span>
         <input type="text" required="required" placeholder="Nombre producto" class="input-producto">
-        <button class="buscar">Buscar</button>
+        <button type="submit" class="buscar">Buscar</button>
     </div>
     <div class="export">
         <div class="formato">
@@ -34,8 +34,8 @@
                 </tr>
             </thead>
             <tbody class="tablefacts">
-                <tr class="infotable">
-                    <th><input type="text" required="required"></th>
+                <tr class="infotable" *ngFor="let item of producto" >
+                    <td>{{item.codigo}}</td>
                 </tr>
             </tbody>
         </table>
@@ -46,8 +46,8 @@
                 </tr>
             </thead>
             <tbody class="tablefacts">
-                <tr class="infotable">
-                    <th><input type="text" required="required"></th>
+                <tr class="infotable" *ngFor="let item of producto">
+                    <td>{{item.nombre}}</td>
                 </tr>
             </tbody>
         </table>
@@ -58,8 +58,8 @@
                 </tr>
             </thead>
             <tbody class="tablefacts">
-                <tr class="infotable">
-                    <th><input type="text"></th>
+                <tr class="infotable" *ngFor="let item of producto">
+                    <td>{{item.descripcion}}</td>
                 </tr>
             </tbody>
         </table>
@@ -70,8 +70,8 @@
                 </tr>
             </thead>
             <tbody class="tablefacts">
-                <tr class="infotable">
-                    <th><input type="text"></th>
+                <tr class="infotable" *ngFor="let item of producto">
+                    <td>{{item.cantidad}}</td>
                 </tr>
             </tbody>
         </table>
