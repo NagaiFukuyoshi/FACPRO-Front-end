@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,6 @@ editar(id_producto:number, params:any){
 filtro(dato:any){
   return this.http.get(`${this.url}?control=filtro$dato=${dato}`);
 }
-
 }
+
+

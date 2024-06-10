@@ -44,7 +44,7 @@ button {
 }
 
 a {
-    color: red;
+    color: blue;
     text-decoration: none;
     margin-bottom: 15px;
 }
@@ -58,6 +58,11 @@ input {
 
 .ingresar{
     color: white;
+}
+
+.error{
+    margin-bottom: 1rem;
+    color: red;
 }
 
 

@@ -34,32 +34,35 @@ import { LibroauxiliarterceroComponent } from './informes/libroauxiliartercero/l
 import { LoginComponent } from './login/login.component';
 import { CrearproveedorComponent } from './terceros/crearproveedor/crearproveedor.component';
 import { CrearusuarioComponent } from './terceros/crearusuario/crearusuario.component';
+import { NoEncontroComponent } from './no-encontro/no-encontro.component';
+import { validaruserGuard } from './guard/validaruser.guard';
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
-  {path: 'ajustecontable', component: AjustecontableComponent},
-  {path: 'comprobanteegreso', component: ComprobantesegresoComponent},
-  {path: 'facturacompra', component: FacturacompraComponent},
-  {path: 'facturaventa', component: FacturaventaComponent},
-  {path: 'notacontable', component: NotacontableComponent},
-  {path: 'recibocaja', component: ReciboscajaComponent},
-  {path: 'saldoinicial', component: SaldosinicialesComponent},
-  {path: 'crearproducto', component: CrearproductoComponent},
-  {path: 'editarproducto', component: EditarproductoComponent},
-  {path: 'eliminarproducto', component: EliminarproductoComponent},
-  {path: 'buscarproducto', component: BuscarproductoComponent},
-  {path: 'buscarfactura', component: ConsultarfacturaComponent},
-  {path: 'editarfactura', component: EditarfacturaComponent},
-  {path: 'crearterceros', component: CreartercerosComponent},
-  {path: 'editarterceros', component: EditartercerosComponent},
-  {path: 'eliminarterceros', component: EliminartercerosComponent},
-  {path: 'balanceprueba', component: BalancepruebaComponent},
-  {path: 'estadoresultado', component: EstadoresultadosComponent},
-  {path: 'balancegeneral', component: BalancegeneralComponent},
-  {path: 'libroauxiliarcuenta', component: LibroauxiliarcuentaComponent},
-  {path: 'libroauxiliartercero', component: LibroauxiliarterceroComponent},
-  {path: 'crearproveedor', component: CrearproveedorComponent},
-  {path: 'crearusuario', component: CrearusuarioComponent}
+  {path: 'ajustecontable', component: AjustecontableComponent, canActivate: [validaruserGuard]},
+  {path: 'comprobanteegreso', component: ComprobantesegresoComponent, canActivate: [validaruserGuard]},
+  {path: 'facturacompra', component: FacturacompraComponent, canActivate: [validaruserGuard]},
+  {path: 'facturaventa', component: FacturaventaComponent, canActivate: [validaruserGuard]},
+  {path: 'notacontable', component: NotacontableComponent, canActivate: [validaruserGuard]},
+  {path: 'recibocaja', component: ReciboscajaComponent, canActivate: [validaruserGuard]},
+  {path: 'saldoinicial', component: SaldosinicialesComponent, canActivate: [validaruserGuard]},
+  {path: 'crearproducto', component: CrearproductoComponent, canActivate: [validaruserGuard]},
+  {path: 'editarproducto', component: EditarproductoComponent, canActivate: [validaruserGuard]},
+  {path: 'eliminarproducto', component: EliminarproductoComponent, canActivate: [validaruserGuard]},
+  {path: 'buscarproducto', component: BuscarproductoComponent, canActivate: [validaruserGuard]},
+  {path: 'buscarfactura', component: ConsultarfacturaComponent, canActivate: [validaruserGuard]},
+  {path: 'editarfactura', component: EditarfacturaComponent, canActivate: [validaruserGuard]},
+  {path: 'crearterceros', component: CreartercerosComponent, canActivate: [validaruserGuard]},
+  {path: 'editarterceros', component: EditartercerosComponent, canActivate: [validaruserGuard]},
+  {path: 'eliminarterceros', component: EliminartercerosComponent, canActivate: [validaruserGuard]},
+  {path: 'balanceprueba', component: BalancepruebaComponent, canActivate: [validaruserGuard]},
+  {path: 'estadoresultado', component: EstadoresultadosComponent, canActivate: [validaruserGuard]},
+  {path: 'balancegeneral', component: BalancegeneralComponent, canActivate: [validaruserGuard]},
+  {path: 'libroauxiliarcuenta', component: LibroauxiliarcuentaComponent, canActivate: [validaruserGuard]},
+  {path: 'libroauxiliartercero', component: LibroauxiliarterceroComponent, canActivate: [validaruserGuard]},
+  {path: 'crearproveedor', component: CrearproveedorComponent, canActivate: [validaruserGuard]},
+  {path: 'crearusuario', component: CrearusuarioComponent, canActivate: [validaruserGuard]},
+  {path: '**', component: NoEncontroComponent}
   ];
 
 @NgModule({
@@ -92,7 +95,8 @@ const routes: Routes = [
     LibroauxiliarterceroComponent,
     LoginComponent,
     CrearproveedorComponent,
-    CrearusuarioComponent
+    CrearusuarioComponent,
+    NoEncontroComponent
   ],
   imports: [
     BrowserModule,

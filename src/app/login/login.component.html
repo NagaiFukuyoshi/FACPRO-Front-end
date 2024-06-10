@@ -4,16 +4,20 @@
         <h3>FACPRO</h3>
         <div class="container">
             <h4>Inicio de sesión</h4>
-            <h5>Usuario</h5>
-            <input type="email" required="required">
+            <h5>Correo</h5>
+            <input type="email" required="required" [(ngModel)]="correo">
             <a href="">¿Has olvidado tu usuario?</a>
             <h5>Contraseña</h5>
-            <input type="password" required="required">
+            <input type="password" required="required" [(ngModel)]="password">
             <a href="">¿Has olvidado tu contraseña?</a>
         </div>
-        <button> <a class="ingresar" href="principal">Ingresar</a></button>
+        <div class="error" *ngIf="error == true">
+            <span>Correo o contraseña incorrecta</span>
+        </div>
+        <button> <a class="ingresar" href="#" (click)="consulta('')">Ingresar</a></button>
     </div>
 </div>
+
 
 
 

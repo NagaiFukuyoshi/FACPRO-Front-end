@@ -7,8 +7,8 @@
     <h2>Buscar producto</h2>
     <div class="buscarproductocont">
         <span>Producto </span>
-        <input type="text" required="required" placeholder="Nombre producto" class="input-producto">
-        <button type="submit" class="buscar">Buscar</button>
+        <input type="text" required="required" placeholder="Nombre producto" class="input-producto" [(ngModel)]="dato">
+        <button type="submit" (click)="filtro(dato)"  class="buscar">Buscar</button>
     </div>
     <div class="export">
         <div class="formato">
