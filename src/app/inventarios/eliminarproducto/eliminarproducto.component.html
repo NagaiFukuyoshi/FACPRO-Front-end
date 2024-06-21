@@ -1,19 +1,15 @@
-<app-header></app-header>
-<app-nav></app-nav>
-<router-outlet></router-outlet>
-
 <!--contenido-->
 <div class="eliminarproducto">
     <h2>Eliminar producto</h2>
     <div class="eliminarproductocont">
         <span>Producto </span>
-        <input type="text" required="required" placeholder="Nombre producto" class="input-producto">
-        <button class="buscar">Buscar</button>
+        <input type="text" required="required" placeholder="Nombre producto" class="input-producto" [(ngModel)]="dato">
+        <button type="submit" (click)="filtrar(dato)"  class="buscar">Buscar</button>
     </div>
     <div class="export">
         <div class="formato">
             <label> 
-                <input type="radio" name="formato">
+                <input type="radio" name="formato" checked>
             </label> Mostrar en pantalla
             <label>
                 <input type="radio" name="formato">
@@ -34,8 +30,8 @@
                 </tr>
             </thead>
             <tbody class="tablefacts">
-                <tr class="infotable">
-                    <th><input type="text" required="required"></th>
+                <tr class="infotable" *ngFor="let item of pro || producto" >
+                    <td>{{item.codigo}}</td>
                 </tr>
             </tbody>
         </table>
@@ -46,8 +42,8 @@
                 </tr>
             </thead>
             <tbody class="tablefacts">
-                <tr class="infotable">
-                    <th><input type="text" required="required"></th>
+                <tr class="infotable" *ngFor="let item of pro || producto">
+                    <td>{{item.nombre}}</td>
                 </tr>
             </tbody>
         </table>
@@ -58,8 +54,8 @@
                 </tr>
             </thead>
             <tbody class="tablefacts">
-                <tr class="infotable">
-                    <th><input type="text"></th>
+                <tr class="infotable" *ngFor="let item of pro || producto">
+                    <td>{{item.descripcion}}</td>
                 </tr>
             </tbody>
         </table>
@@ -70,8 +66,11 @@
                 </tr>
             </thead>
             <tbody class="tablefacts">
-                <tr class="infotable">
-                    <th><input type="text"></th>
+                <tr class="infotable" *ngFor="let item of pro || producto">
+                    <td class="cantidad">
+                        <div class="cant1">{{item.cantidad + " - " + item.id_producto}}</div>
+                        <button class="cant2" (click)="eliminar(item.id_producto)"><i class="fa-solid fa-trash-can"></i></button>
+                    </td>
                 </tr>
             </tbody>
         </table>

@@ -12,6 +12,5 @@ export class LoginService {
 
 consulta(correo:any, password:any){
   return this.http.get(`${this.url}?correo=${correo}&password=${password}`);
-  //console.log(`${this.url}?correo=${correo}&password=${password}`);
 }
 }

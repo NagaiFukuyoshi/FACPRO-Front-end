@@ -39,7 +39,7 @@ export class LoginComponent {
             sessionStorage.setItem("apellidos", this.usuario[0]['apellidos']);
             sessionStorage.setItem("correo", this.usuario[0]['correo']);
             sessionStorage.setItem("usuario", this.usuario[0]['usuario']);
-            this.router.navigate(['principal']);
+            this.router.navigate(['/dashboard']);
           } else{
             this.error = true;
           }

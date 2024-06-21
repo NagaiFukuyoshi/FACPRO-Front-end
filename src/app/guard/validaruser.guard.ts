@@ -19,7 +19,7 @@ export class validaruserGuard implements CanActivate {
       this.id_user =sessionStorage.getItem('id');
 
         if(this.id_user == null || this.id_user == ""){
-          this.router.navigate([''])
+          this.router.navigate(['login'])
           return false
         }
 

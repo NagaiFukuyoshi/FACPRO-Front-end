@@ -3,6 +3,7 @@
     height: 91vh;
     display: flex;
     flex-direction: column;
+    max-width: 1100px;
 }
 
 h2{
@@ -67,7 +68,7 @@ tr{
 .mytable input,
 th{
     font-size: 14px;
-    width: 273px;
+    width: 263px;
 }
 
 .headtable{

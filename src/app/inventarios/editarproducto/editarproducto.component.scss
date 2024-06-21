@@ -1,10 +1,9 @@
 .editarproducto{
     padding: 20px 20px;
-    margin-left: 220px;
-    margin-top: -571px;
     height: 91vh;
     display: flex;
     flex-direction: column;
+    max-width: 1085px;
 }
 
 .editarproducto div{
@@ -49,6 +48,24 @@
     border-radius: 10px;
 }
 
+.fa-pen-to-square{
+  text-align: end;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.cant1{
+  width: 240px;
+}
+
+.cant2{
+  width: 20px;
+}
+
+.cantidad{
+  display: flex;
+}
+
 .table{
     display: flex;
   }
@@ -64,13 +81,18 @@ tr{
 .mytable th, 
 .mytable input,
 th{
-    font-size: 14px;
+    font-size: 16px;
     width: 260px;
 }
 
 .headtable{
     background-color: var(--bs-link-color);
     text-align: center;
+}
+
+.infotable{
+  text-align: center;
+  border-bottom: 1px solid gray;
 }
 
 span{

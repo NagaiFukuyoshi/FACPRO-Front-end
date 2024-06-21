@@ -1,19 +1,15 @@
-<app-header></app-header>
-<app-nav></app-nav>
-<router-outlet></router-outlet>
-
 <!--contenido-->
 <div class="buscarproducto">
     <h2>Buscar producto</h2>
     <div class="buscarproductocont">
         <span>Producto </span>
         <input type="text" required="required" placeholder="Nombre producto" class="input-producto" [(ngModel)]="dato">
-        <button type="submit" (click)="filtro(dato)"  class="buscar">Buscar</button>
+        <button type="submit" (click)="filtrar(dato)"  class="buscar">Buscar</button>
     </div>
     <div class="export">
         <div class="formato">
             <label> 
-                <input type="radio" name="formato">
+                <input type="radio" name="formato" checked>
             </label> Mostrar en pantalla
             <label>
                 <input type="radio" name="formato">
@@ -34,7 +30,7 @@
                 </tr>
             </thead>
             <tbody class="tablefacts">
-                <tr class="infotable" *ngFor="let item of producto" >
+                <tr class="infotable" *ngFor="let item of pro || producto" >
                     <td>{{item.codigo}}</td>
                 </tr>
             </tbody>
@@ -46,7 +42,7 @@
                 </tr>
             </thead>
             <tbody class="tablefacts">
-                <tr class="infotable" *ngFor="let item of producto">
+                <tr class="infotable" *ngFor="let item of pro || producto">
                     <td>{{item.nombre}}</td>
                 </tr>
             </tbody>
@@ -58,7 +54,7 @@
                 </tr>
             </thead>
             <tbody class="tablefacts">
-                <tr class="infotable" *ngFor="let item of producto">
+                <tr class="infotable" *ngFor="let item of pro || producto">
                     <td>{{item.descripcion}}</td>
                 </tr>
             </tbody>
@@ -70,11 +66,12 @@
                 </tr>
             </thead>
             <tbody class="tablefacts">
-                <tr class="infotable" *ngFor="let item of producto">
+                <tr class="infotable" *ngFor="let item of pro || producto">
                     <td>{{item.cantidad}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
 </div>
+
 

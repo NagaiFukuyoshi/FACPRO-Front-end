@@ -10,14 +10,13 @@ export class BuscarproductoComponent implements OnInit {
 
   producto: any;
   prod: any;
-  dato: string = '';
+  dato: any;
   pro: any;
 
   constructor(private sprod: ProductoService) {}
 
   ngOnInit(): void {
     this.consulta();
-    this.filtro(this.dato);
   }
 
   consulta(): void {
@@ -26,12 +25,11 @@ export class BuscarproductoComponent implements OnInit {
     });
   }
 
-  filtro(dato: string): void {
+  filtrar(dato: any): void {
     this.sprod.filtro(dato).subscribe((resultado2: any) => {
       this.pro = resultado2;
       console.log(this.pro);
-      console.log(this.dato);
-      console.log(`?control=filtro$dato=${dato}`);
     });
   }
 }
+

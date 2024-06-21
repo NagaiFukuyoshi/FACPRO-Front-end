@@ -16,7 +16,7 @@ consulta(){
 }
 
 eliminar(id_producto:number){
-  return this.http.get(`${this.url}?control=consulta&id_producto=${id_producto}`);
+  return this.http.get(`${this.url}?control=eliminar&id_producto=${id_producto}`);
 }
 
 insertar(params:any){
@@ -28,7 +28,8 @@ editar(id_producto:number, params:any){
 }
 
 filtro(dato:any){
-  return this.http.get(`${this.url}?control=filtro$dato=${dato}`);
+  console.log(`${this.url}?control=filtro&dato=${dato}`);
+  return this.http.get(`${this.url}?control=filtro&dato=${dato}`);
 }
 }
 

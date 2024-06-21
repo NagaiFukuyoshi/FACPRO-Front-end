@@ -27,7 +27,7 @@ editar(id_pais:number, params:any){
 }
 
 filtro(dato:any){
-  return this.http.get(`${this.url}?control=filtro$fato=${dato}`);
+  return this.http.get(`${this.url}?control=filtro&dato=${dato}`);
 }
 
 }
