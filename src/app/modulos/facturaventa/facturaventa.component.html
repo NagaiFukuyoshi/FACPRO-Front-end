@@ -3,7 +3,7 @@
     <h2>Factura de venta N° 001</h2>
         <div class="facturaventacont">
             <span>Cliente </span>
-            <input type="text" required="required" placeholder="Nombre cliente" class="input-client">
+            <input type="text" required="required" placeholder="Nombre cliente" class="input-client" (keydown.enter)="filtrarcli(dato2)" [(ngModel)]="dato2">
         </div>
         <div class="facturaventacont">
             <span>Fecha de elaboración </span>
@@ -23,86 +23,89 @@
             <table class="mytable">
                 <thead class="tablefact">
                     <tr class="headtable">
-                        <th>Código</th>
+                        <th class="tamaño2">
+                            Código
+                        </th>
+                        <th class="tamaño3">
+                            Producto
+                        </th>
+                        <th class="tamaño3">
+                            Descripción
+                        </th>
+                        <th class="tamaño2">
+                            Precio
+                        </th>
+                        <th class="tamaño2">
+                            cantidad
+                        </th>
+                        <th class="tamaño2">
+                            IVA
+                        </th>
+                        <th class="tamaño2">
+                            Total
+                        </th>
                     </tr>
                 </thead>
                 <tbody class="tablefacts">
                     <tr class="infotable">
-                        <th><input type="text" required="required"></th>
+                        <td class="tamaño2 td">
+                            <input class="tamaño2" type="text" required="required" (keydown.enter)="filtrarp(dato)" [(ngModel)]="dato">
+                        </td>
+                        <td class="codigo tamaño3" style="color: black;">
+                            {{selectedNombre}}
+                        </td>
+                        <td>
+                            <input class="tamaño3" type="text">
+                        </td>
+                        <td class="tamaño2">
+                            <input class="tamaño2" type="text">
+                        </td>
+                        <td class="tamaño2">
+                            <input class="tamaño2" type="number">
+                        </td>
+                        <td class="tamaño2">
+                            <input class="tamaño2" type="number">
+                        </td>
+                        <td class="tamaño2">
+                            <input class="tamaño2" type="number">
+                        </td>
                     </tr>
                 </tbody>
             </table>
-            <table class="mytable">
-                <thead class="tablefact">
-                    <tr class="headtable">
-                        <th>Nombre prod</th>
-                    </tr>
-                </thead>
-                <tbody class="tablefacts">
-                    <tr class="infotable">
-                        <th><input type="text" required="required"></th>
-                    </tr>
-                </tbody>
+        </div>
+        <div class="formulario" *ngIf="showFormulario === true"><!--Inicio despliegue de productos-->
+            <table class="tabla__cuenta codigo" (click)="escoger(itemp)" *ngFor="let itemp of producto">
+                <div class="escoger">
+                    <tbody>
+                        <option>
+                            <tr>
+                                <th class="tamaño pointer">{{itemp.codigo}}</th>
+                            </tr>
+                        </option>
+                    </tbody>
+                </div>
+                <div class="escoger">
+                    <tbody>
+                        <option>
+                            <tr>
+                                <th class="pointer">{{itemp.nombre}}</th>
+                            </tr>
+                        </option>
+                    </tbody>
+                </div>
             </table>
-            <table class="mytable">
-                <thead class="tablefact">
-                    <tr class="headtable">
-                        <th>Descripción</th>
-                    </tr>
-                </thead>
-                <tbody class="tablefacts">
-                    <tr class="infotable">
-                        <th><input type="text" required="required"></th>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="mytable">
-                <thead class="tablefact">
-                    <tr class="headtable">
-                        <th>Precio</th>
-                    </tr>
-                </thead>
-                <tbody class="tablefacts">
-                    <tr class="infotable">
-                        <th><input type="text" required="required"></th>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="mytable">
-                <thead class="tablefact">
-                    <tr class="headtable">
-                        <th>Cantidad</th>
-                    </tr>
-                </thead>
-                <tbody class="tablefacts">
-                    <tr class="infotable">
-                        <th><input type="text" required="required"></th>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="mytable">
-                <thead class="tablefact">
-                    <tr class="headtable">
-                        <th>IVA</th>
-                    </tr>
-                </thead>
-                <tbody class="tablefacts">
-                    <tr class="infotable">
-                        <th><input type="text"></th>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="mytable">
-                <thead class="tablefact">
-                    <tr class="headtable">
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody class="tablefacts">
-                    <tr class="infotable">
-                        <th><input type="text"></th>
-                    </tr>
-                </tbody>
+        </div><!--Final despliegue de productos-->
+        <div class="formulario2" *ngIf="showFormulariocli === true">
+            <table class="tabla__cuenta codigo" (click)="escogercli(itemcli)" *ngFor="let itemcli of cliente">
+                <div class="escoger">
+                    <tbody>
+                        <option>
+                            <tr>
+                                <th class="tamaño pointer">{{itemcli.nombre + " " + itemcli.apellido}}</th>
+                            </tr>
+                        </option>
+                    </tbody>
+                </div>
             </table>
         </div>
         <div class="foot">

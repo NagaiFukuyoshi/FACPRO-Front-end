@@ -51,6 +51,78 @@
     width: 110px;;
 }
 
+input{
+  border: none;
+}
+
+//nuevo
+.formulario, 
+.formulario2{
+  position:absolute;
+}
+
+.mytable{
+  position: relative;
+  border-bottom: 1px solid gray;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.tabla__cuenta{
+  width: 450px;
+  z-index: 1;
+  overflow: hidden;
+  border: .5px solid rgb(192, 192, 192);
+  background-color: white;
+  display: flex;
+
+  &:hover{
+    background-color: var(--bs-link-color);
+    transition: 1s;
+  }
+}
+
+.formulario{
+  margin-top: 225px;
+  margin-right: 180px;
+}
+
+.formulario2{
+  margin-top: 75px;
+}
+
+.tabla__cuenta th{
+  cursor: pointer;
+}
+
+.codigo{
+  font-size: 14px;
+  font-family: Arial;
+  font-weight: normal;
+}
+
+.tamaño{
+  max-width: 75px;
+}
+
+.tamaño2{
+  max-width: 107px;
+}
+
+.tamaño3{
+  max-width: 250px;
+  min-width: 250px;
+}
+
+tr, td{
+    border: none;
+    max-height: 26px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 tr{
     border: none;
 }

@@ -19,79 +19,88 @@
         <table class="mytable">
             <thead class="tablefact">
                 <tr class="headtable">
-                    <th>Código</th>
+                    <th class="tamaño2">
+                        Código
+                    </th>
+                    <th class="tamaño3">
+                        Cuenta contable
+                    </th>
+                    <th class="tamaño3">
+                        Tercero
+                    </th>
+                    <th class="tamaño3">
+                        Descripción
+                    </th>
+                    <th class="tamaño2">
+                        Débito
+                    </th>
+                    <th class="tamaño2">
+                        Crédito
+                    </th>
                 </tr>
             </thead>
             <tbody class="tablefacts">
                 <tr class="infotable">
-                    <th><input type="text" required="required"></th>
-                </tr>
-            </tbody>
-        </table>
-        <table class="mytable">
-            <thead class="tablefact">
-                <tr class="headtable">
-                    <th>Cuenta contable</th>
-                </tr>
-            </thead>
-            <tbody class="tablefacts">
-                <tr class="infotable">
-                    <th><input type="text" required="required"></th>
-                </tr>
-            </tbody>
-        </table>
-        <table class="mytable">
-            <thead class="tablefact">
-                <tr class="headtable">
-                    <th>Tercero</th>
-                </tr>
-            </thead>
-            <tbody class="tablefacts">
-                <tr class="infotable">
-                    <th><input type="text" required="required"></th>
-                </tr>
-            </tbody>
-        </table>
-        <table class="mytable">
-            <thead class="tablefact">
-                <tr class="headtable">
-                    <th>Descripción</th>
-                </tr>
-            </thead>
-            <tbody class="tablefacts">
-                <tr class="infotable">
-                    <th><input type="text"></th>
-                </tr>
-            </tbody>
-        </table>
-        <table class="mytable">
-            <thead class="tablefact">
-                <tr class="headtable">
-                    <th>Débito</th>
-                </tr>
-            </thead>
-            <tbody class="tablefacts">
-                <tr class="infotable">
-                    <th><input type="text"></th>
-                </tr>
-            </tbody>
-        </table>
-        <table class="mytable">
-            <thead class="tablefact">
-                <tr class="headtable">
-                    <th>Crédito</th>
-                </tr>
-            </thead>
-            <tbody class="tablefacts">
-                <tr class="infotable">
-                    <th><input type="text"></th>
+                    <td class="tamaño2 td">
+                        <input class="tamaño2" type="text" required="required" (keydown.enter)="filtrarc(dato)" [(ngModel)]="dato">
+                    </td>
+                    <td class="codigo tamaño3" style="color: black;">
+                        {{selectedCuenta}}
+                    </td>
+                    <td>
+                        <input class="tamaño3" type="text" (keydown.enter)="filtrarpro(dato2)" [(ngModel)]="dato2">
+                    </td>
+                    <td class="tamaño3">
+                        <input class="tamaño3" type="text">
+                    </td>
+                    <td class="tamaño2">
+                        <input class="tamaño2" type="number">
+                    </td>
+                    <td class="tamaño2">
+                        <input class="tamaño2" type="number">
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
+    <div class="formulario" *ngIf="showFormulario === true"><!--Inicio despliegue de cuentas-->
+        <table class="tabla__cuenta codigo" (click)="escoger(itemc)" *ngFor="let itemc of cuentas">
+            <div class="escoger">
+                <tbody>
+                    <option>
+                        <tr>
+                            <th class="tamaño pointer">{{itemc.codigo}}</th>
+                        </tr>
+                    </option>
+                </tbody>
+            </div>
+            <div class="escoger">
+                <tbody>
+                    <option>
+                        <tr>
+                            <th class="pointer">{{itemc.nombre}}</th>
+                        </tr>
+                    </option>
+                </tbody>
+            </div>
+        </table>
+    </div><!--Final despliegue de cuentas-->
+    <div class="formulario2" *ngIf="showFormulariopro === true">
+        <table class="tabla__cuenta codigo" (click)="escogerpro(itempro)" *ngFor="let itempro of proveedor">
+            <div class="escoger">
+                <tbody>
+                    <option>
+                        <tr>
+                            <th class="tamaño pointer">{{itempro.nombre + " " + itempro.apellido}}{{itempro.razon_social}}</th>
+                        </tr>
+                    </option>
+                </tbody>
+            </div>
+        </table>
+    </div>
     <div class="foot">
         <div class="add">
-            <i class="fa-solid fa-circle-plus"></i>
+            <i class="fa-solid fa-circle-plus pointer"></i>
         </div>
         <div class="secondinfor">
             <div class="total">

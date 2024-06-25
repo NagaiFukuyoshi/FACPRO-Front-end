@@ -1,10 +1,9 @@
 .recibocaja{
     padding: 20px 20px;
-    width: 80vh;
+    width: 90vh;
     height: 91vh;
     display: flex;
     flex-direction: column;
-    max-width: 80vh;
 }
 
 .recibocaja div{
@@ -39,10 +38,6 @@ input{
   position:absolute;
 }
 
-.formulario2{
-  margin-top: 80px;
-}
-
 .pointer{
   cursor: pointer;
 }
@@ -59,6 +54,15 @@ input{
     background-color: var(--bs-link-color);
     transition: 1s;
   }
+}
+
+.formulario2{
+  margin-top: 80px;
+}
+
+.formulario{
+  margin-top: 250px;
+  margin-right: 180px;
 }
 
 .tabla__cuenta th{
@@ -89,7 +93,6 @@ input{
 }
 
 .mytable{
-    width: 110px;
     position: relative;
     border-bottom: 1px solid gray;
 }
@@ -120,11 +123,19 @@ table{
   min-width: 250px;
 }
 
-tr{
+tr, td{
     border: none;
     max-height: 26px;
     white-space: nowrap;
     overflow: hidden;
+}
+
+td{
+  padding: 0 5px;
+}
+
+.td{
+  padding: 0;
 }
 
 .mytable th, 
@@ -135,6 +146,7 @@ th{
 
 .headtable{
     background-color: var(--bs-link-color);
+    width: 1040px;
 }
 
 span{

@@ -47,6 +47,79 @@
   display: flex;
 }
 
+input{
+  border: none;
+}
+
+//nuevo
+.formulario, 
+.formulario2{
+  position:absolute;
+}
+
+.mytable{
+  position: relative;
+  border-bottom: 1px solid gray;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.tabla__cuenta{
+  width: 450px;
+  z-index: 1;
+  overflow: hidden;
+  border: .5px solid rgb(192, 192, 192);
+  background-color: white;
+  display: flex;
+
+  &:hover{
+    background-color: var(--bs-link-color);
+    transition: 1s;
+  }
+}
+
+.formulario{
+  margin-top: 205px;
+  margin-right: 180px;
+}
+
+.formulario2{
+  margin-top: 205px;
+  margin-left: 350px;
+}
+
+.tabla__cuenta th{
+  cursor: pointer;
+}
+
+.codigo{
+  font-size: 14px;
+  font-family: Arial;
+  font-weight: normal;
+}
+
+.tamaño{
+  max-width: 75px;
+}
+
+.tamaño2{
+  max-width: 100px;
+}
+
+.tamaño3{
+  max-width: 250px;
+  min-width: 250px;
+}
+
+tr, td{
+    border: none;
+    max-height: 26px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
 .mytable{
     width: 110px;
 }
@@ -86,10 +159,14 @@ span{
   flex-direction: column;
 }
 
+.pointer{
+  cursor: pointer;
+}
+
 .total{
-    width: 525px;
-    justify-content: end;
-    text-align: end;
+  width: 310px;
+  justify-content: end;
+  text-align: end;
 }
 
 /* Estilos para hacer responsive */

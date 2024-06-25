@@ -36,98 +36,72 @@
             <table class="mytable">
                 <thead class="tablefact">
                     <tr class="headtable">
-                        <th class="tamaño">Código</th>
-                    </tr>
-                </thead>
-                <tbody class="tablefacts" id="codeSearchcuenta">
-                    <tr class="infotable">
-                        <td><input class="tamaño" type="text" required="required" (keydown.enter)="filtrarc(dato)" [(ngModel)]="dato"></td>
-                    </tr>
-                </tbody>
-                <div class="formulario" *ngIf="showFormulario === true">
-                    <table class="tabla__cuenta codigo" (click)="escoger(itemc)" *ngFor="let itemc of cuentas">
-                        <div class="escoger">
-                            <tbody>
-                                <option>
-                                    <tr>
-                                        <th class="tamaño pointer">{{itemc.codigo}}</th>
-                                    </tr>
-                                </option>
-                            </tbody>
-                        </div>
-                        <div class="escoger">
-                            <tbody>
-                                <option>
-                                    <tr>
-                                        <th class="pointer">{{itemc.nombre}}</th>
-                                    </tr>
-                                </option>
-                            </tbody>
-                        </div>
-                    </table>
-                </div>
-            </table>
-            <table class="mytable">
-                <thead class="tablefact">
-                    <tr class="headtable">
-                        <th class="width tamaño3">Cuenta contable</th>
+                        <th class="tamaño2">
+                            Código
+                        </th>
+                        <th class="tamaño3">
+                            Cuenta contable
+                        </th>
+                        <th class="tamaño3">
+                            Tercero
+                        </th>
+                        <th class="tamaño3">
+                            Descripción
+                        </th>
+                        <th class="tamaño2">
+                            Débito
+                        </th>
+                        <th class="tamaño2">
+                            Crédito
+                        </th>
                     </tr>
                 </thead>
                 <tbody class="tablefacts">
                     <tr class="infotable">
-                        <th class="codigo tamaño3" style="color: black;">{{selectedCuenta}}</th>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="mytable">
-                <thead class="tablefact">
-                    <tr class="headtable">
-                        <th class="tamaño3">Tercero</th>
-                    </tr>
-                </thead>
-                <tbody class="tablefacts">
-                    <tr class="infotable" *ngFor="let itemcli of cliente">
-                        <th class="codigo tamaño3" style="color: black;">{{selectedCliente}}</th>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="mytable">
-                <thead class="tablefact">
-                    <tr class="headtable">
-                        <th class="tamaño3">Descripción</th>
-                    </tr>
-                </thead>
-                <tbody class="tablefacts">
-                    <tr class="infotable">
-                        <th><input class="tamaño3" type="text"></th>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="mytable">
-                <thead class="tablefact">
-                    <tr class="headtable">
-                        <th class="tamaño2">Débito</th>
-                    </tr>
-                </thead>
-                <tbody class="tablefacts">
-                    <tr class="infotable">
-                        <th><input class="tamaño2" type="number" step="0.01" min="0"></th>
-                    </tr>
-                </tbody>
-            </table>
-            <table class="mytable">
-                <thead class="tablefact">
-                    <tr class="headtable">
-                        <th class="tamaño2">Crédito</th>
-                    </tr>
-                </thead>
-                <tbody class="tablefacts">
-                    <tr class="infotable">
-                        <th><input class="tamaño2" type="text"></th>
+                        <td class="tamaño2 td">
+                            <input class="tamaño2" type="text" required="required" (keydown.enter)="filtrarc(dato)" [(ngModel)]="dato">
+                        </td>
+                        <td class="codigo tamaño3" style="color: black;">
+                            {{selectedCuenta}}
+                        </td>
+                        <td  *ngFor="let itemcli of cliente" class="codigo tamaño3" style="color: black;">
+                            {{selectedCliente}}
+                        </td>
+                        <td class="tamaño3">
+                            <input class="tamaño3" type="text">
+                        </td>
+                        <td class="tamaño2">
+                            <input class="tamaño2" type="number">
+                        </td>
+                        <td class="tamaño2">
+                            <input class="tamaño2" type="number">
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
+        <div class="formulario" *ngIf="showFormulario === true"><!--Inicio despliegue de cuentas-->
+            <table class="tabla__cuenta codigo" (click)="escoger(itemc)" *ngFor="let itemc of cuentas">
+                <div class="escoger">
+                    <tbody>
+                        <option>
+                            <tr>
+                                <th class="tamaño pointer">{{itemc.codigo}}</th>
+                            </tr>
+                        </option>
+                    </tbody>
+                </div>
+                <div class="escoger">
+                    <tbody>
+                        <option>
+                            <tr>
+                                <th class="pointer">{{itemc.nombre}}</th>
+                            </tr>
+                        </option>
+                    </tbody>
+                </div>
+            </table>
+        </div><!--Final despliegue de cuentas-->
         <div class="foot">
             <div class="add" id="agregar_celda">
                 <i onclick="agregarfila()" class="fa-solid fa-circle-plus pointer"></i>
