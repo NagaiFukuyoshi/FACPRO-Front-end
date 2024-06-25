@@ -26,48 +26,34 @@
         <table class="mytable">
             <thead class="tablefact">
                 <tr class="headtable">
-                    <th>Código</th>
-                </tr>
-            </thead>
-            <tbody class="tablefacts">
-                <tr class="infotable" *ngFor="let item of pro || producto" >
-                    <td>{{item.codigo}}</td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="mytable">
-            <thead class="tablefact">
-                <tr class="headtable">
-                    <th>Nombre prod</th>
-                </tr>
-            </thead>
-            <tbody class="tablefacts">
-                <tr class="infotable" *ngFor="let item of pro || producto">
-                    <td>{{item.nombre}}</td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="mytable">
-            <thead class="tablefact">
-                <tr class="headtable">
-                    <th>Descripción</th>
+                    <th>
+                        Código
+                    </th>
+                    <th>
+                        Producto
+                    </th>
+                    <th>
+                        Descripción
+                    </th>
+                    <th>
+                        Cantidad Inv
+                    </th>
                 </tr>
             </thead>
             <tbody class="tablefacts">
                 <tr class="infotable" *ngFor="let item of pro || producto">
-                    <td>{{item.descripcion}}</td>
-                </tr>
-            </tbody>
-        </table>
-        <table class="mytable">
-            <thead class="tablefact">
-                <tr class="headtable">
-                    <th>Cant inventario</th>
-                </tr>
-            </thead>
-            <tbody class="tablefacts">
-                <tr class="infotable" *ngFor="let item of pro || producto">
-                    <td>{{item.cantidad}}</td>
+                    <td>
+                        {{item.codigo}}
+                    </td>
+                    <td >
+                        {{item.nombre}}
+                    </td>
+                    <td>
+                        {{item.descripcion}}
+                    </td>
+                    <td>
+                        {{item.cantidad}}
+                    </td>
                 </tr>
             </tbody>
         </table>
