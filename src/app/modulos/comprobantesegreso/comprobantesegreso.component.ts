@@ -74,8 +74,7 @@ export class ComprobantesegresoComponent {
   }
 
   escogerpro(itempro: any): void {//Función escoger el cliente
-    this.selectedProveedor = itempro.nombre + " " + itempro.apellido;
-    this.razon_social = itempro.razon_social;
+    this.selectedProveedor = itempro.razon_social || itempro.nombre + " " + itempro.apellido;
 
     if(`event.keycode === 13`){
       this.showFormulariopro = false; // Para ocultar el formulario

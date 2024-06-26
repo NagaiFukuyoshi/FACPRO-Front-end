@@ -55,13 +55,21 @@ h2{
 .table{
     display: flex;
   }
-  
-.mytable{
-    width: 275px;
-}
 
 tr{
     border: none;
+}
+
+.cant1{
+  width: 240px;
+}
+
+.cant2{
+  width: 20px;
+}
+
+.cantidad{
+  display: flex;
 }
 
 .mytable th, 

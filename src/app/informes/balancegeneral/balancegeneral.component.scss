@@ -52,12 +52,20 @@
     display: flex;
 }
 
-.mytable{
-    width: 350px;
-}
-
 tr{
     border: none;
+}
+
+.tamaño{
+    max-width: 130px;
+}
+
+.tamaño2{
+    max-width: 260px;
+}
+
+.tamaño3{
+    width: 380px;
 }
 
 .mytable th, 

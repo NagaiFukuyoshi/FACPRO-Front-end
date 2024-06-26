@@ -6,4 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
+
+  nombres:any;
+  apellidos:any;
+
+  ngOnInit(): void {
+    this.nombres = sessionStorage.getItem('nombres');
+    this.apellidos = sessionStorage.getItem('apellidos');
+  }
 }
