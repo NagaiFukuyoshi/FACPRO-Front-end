@@ -35,7 +35,7 @@ export class CrearusuarioComponent {
 
   constructor(private susuario:UsuarioService, private srol: RolService){}
 
-  //función validar campos
+  //----------------------Función validar campos------------------------------------------------------------------------------------------
   validar(){
     //validar que nombres no este vació
     if(this.usuario.nombres == ""){
@@ -73,7 +73,7 @@ export class CrearusuarioComponent {
     }
     }
 
-  //Función para limpiar los campos
+  //----------------------Función para limpiar los campos---------------------------------------------------------------------------------
   limpiar(){
     this.usuario = {
       fo_rol:0,
@@ -85,7 +85,7 @@ export class CrearusuarioComponent {
     }
   }
   
-  //Función para guardar la información en la base de datos
+  //----------------------Función para guardar la información en la base de datos----------------------------------------------------------
   guardar(){
     this.susuario.insertar(this.usuario).subscribe((datos:any) => {
       if(datos['resultado'] == 'OK'){

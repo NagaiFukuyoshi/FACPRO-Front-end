@@ -112,8 +112,6 @@ export class ReciboscajaComponent implements OnInit {
 
       this.scliente.filtro(dato2).subscribe((resultado2: any) => {
         this.cliente = resultado2;
-        console.log(this.dato2);
-        console.log(this.cliente);
       });
     }
   }
@@ -160,48 +158,37 @@ export class ReciboscajaComponent implements OnInit {
         this.validar_cuenta=false;
       }else{
         this.validar_cuenta=true;
-        console.log(this.validar_cuenta);//ok
       }
     //validar que codigo no este vació
       if(this.obj_recibo.fo_codigo == 0){
         this.validar_codigo=false;
-        console.log(this.validar_codigo);// false
       }else{
         this.validar_codigo=true;
-        console.log(this.validar_codigo);
       }
     //validar que cuenta2 no este vació
       if(this.obj_recibo.fo_cuenta2 == 0){
         this.validar_cuenta2=false;
       }else{
         this.validar_cuenta2=true;
-        console.log(this.validar_cuenta2);//ok
       }
     //validar que codigo2 no este vació
       if(this.obj_recibo.fo_codigo2 == 0){
         this.validar_codigo2=false;
-        console.log(this.validar_codigo2); //false
       }else{
         this.validar_codigo2=true;
-        console.log(this.validar_codigo2);
       }
     //validar que cliente no este vació
       if(this.obj_recibo.fo_cliente == 0){
         this.validar_cliente=false;
       }else{
         this.validar_cliente=true;
-        console.log(this.validar_cliente);//ok
       }
     //validar que diferencia no este vació
       if(this.obj_recibo.diferencia == 0){
         this.validar_diferencia=true;
-        console.log(this.validar_diferencia);//ok
       }else{
         this.validar_diferencia=false;
-        console.log(this.validar_diferencia);
       }
-
-      console.log(this.obj_recibo);
 
       if(this.validar_cuenta == true && this.validar_codigo == true && this.validar_cuenta2 == true && this.validar_codigo2 == true && this.validar_diferencia == true && this.validar_cliente == true){
         this.guardar();
@@ -216,7 +203,6 @@ export class ReciboscajaComponent implements OnInit {
 
   //--------------Función de guardar--------------------------------------------------------------------------------------------------------
   guardar(): void {
-    console.log('Datos del recibo antes de guardar:', this.recibo);
 
     this.srecibo.insertar(this.obj_recibo).subscribe((datos:any) => {
       if(datos['resultado'] == 'OK'){

@@ -152,11 +152,9 @@ export class CrearproveedorComponent {
 
   //-----------------------Función de guardar----------------------------------------------------------------------------------------------
   guardar(): void {
-    console.log('Datos del proveedor antes de guardar:', this.proveedor);
     
     this.sproveedor.insertar(this.proveedor).subscribe(
       (datos: any) => {
-        console.log('Proveedor guardado:', datos);
 
         Swal.fire({
           position: "center",
@@ -167,9 +165,6 @@ export class CrearproveedorComponent {
         });
 
         this.limpiar();
-      },
-      (error: any) => {
-        console.error('Error al guardar proveedor:', error);
       }
     );
   }

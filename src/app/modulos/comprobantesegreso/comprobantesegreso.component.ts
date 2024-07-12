@@ -113,8 +113,6 @@ export class ComprobantesegresoComponent {
 
       this.sproveedor.filtro(dato2).subscribe((resultado2: any) => {
         this.proveedor = resultado2;
-        console.log(this.dato2);
-        console.log(this.proveedor);
       });
     }
   }
@@ -196,45 +194,36 @@ export class ComprobantesegresoComponent {
         this.validar_cuenta=false;
       }else{
         this.validar_cuenta=true;
-        console.log(this.validar_cuenta);//ok
       }
     //validar que codigo no este vació
       if(this.obj_comprobante.fo_codigo == 0){
         this.validar_codigo=false;
-        console.log(this.validar_codigo);// false
       }else{
         this.validar_codigo=true;
-        console.log(this.validar_codigo);
       }
     //validar que cuenta2 no este vació
       if(this.obj_comprobante.fo_cuenta2 == 0){
         this.validar_cuenta2=false;
       }else{
         this.validar_cuenta2=true;
-        console.log(this.validar_cuenta2);//ok
       }
     //validar que codigo2 no este vació
       if(this.obj_comprobante.fo_codigo2 == 0){
         this.validar_codigo2=false;
-        console.log(this.validar_codigo2); //false
       }else{
         this.validar_codigo2=true;
-        console.log(this.validar_codigo2);
       }
     //validar que proveedor no este vació
       if(this.obj_comprobante.fo_proveedor == 0){
         this.validar_proveedor=false;
       }else{
         this.validar_proveedor=true;
-        console.log(this.validar_proveedor);//ok
       }
     //validar que diferencia no este vació
       if(this.obj_comprobante.diferencia == 0){
         this.validar_diferencia=true;
-        console.log(this.validar_diferencia);//ok
       }else{
         this.validar_diferencia=false;
-        console.log(this.validar_diferencia);
       }
 
       console.log(this.obj_comprobante);
@@ -246,7 +235,6 @@ export class ComprobantesegresoComponent {
 
   //--------------Función de guardar--------------------------------------------------------------------------------------------------------
   guardar(): void {
-    console.log('Datos del comprobante antes de guardar:', this.comprobante);
 
     this.scomprobante.insertar(this.obj_comprobante).subscribe((datos:any) => {
       if(datos['resultado'] == 'OK'){

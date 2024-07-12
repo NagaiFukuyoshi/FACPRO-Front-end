@@ -151,10 +151,8 @@ export class CreartercerosComponent {
   
   //-----------------------Función de guardar----------------------------------------------------------------------------------------------
   guardar(): void {
-    console.log('Datos del cliente antes de guardar:', this.cliente); // Log para verificar los datos antes de guardar
     this.scliente.insertar(this.cliente).subscribe(
       (datos: any) => {
-        console.log('cliente guardado:', datos);
 
         Swal.fire({
           position: "center",
@@ -165,9 +163,6 @@ export class CreartercerosComponent {
         });
 
         this.limpiar();
-      },
-      (error: any) => {
-        console.error('Error al guardar cliente:', error);
       }
     );
   }

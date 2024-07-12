@@ -19,16 +19,17 @@ export class EditarproductoComponent {
     this.consulta();
   }
 
+  //----------------------Función consulta-----------------------------------------------------------------------------------------------
   consulta(): void {
     this.sprod.consulta().subscribe((resultado: any) => {
       this.producto = resultado;
     });
   }
 
+  //----------------------Función filtro--------------------------------------------------------------------------------------------------
   filtrar(dato: any): void {
     this.sprod.filtro(dato).subscribe((resultado2: any) => {
       this.pro = resultado2;
-      console.log(this.pro);
     });
   }
 }

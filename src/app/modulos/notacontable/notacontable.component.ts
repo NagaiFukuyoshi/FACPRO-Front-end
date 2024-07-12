@@ -180,60 +180,45 @@ export class NotacontableComponent {
   //validar que cuenta no este vació
     if(this.obj_notacontable.fo_cuenta == 0){
       this.validar_cuenta=false;
-      console.log(this.validar_cuenta);
     }else{
       this.validar_cuenta=true;
-      console.log(this.validar_cuenta);
     }
   //validar que codigo no este vació
     if(this.obj_notacontable.fo_codigo == 0){
       this.validar_codigo=false;
-      console.log(this.validar_codigo);
     }else{
       this.validar_codigo=true;
-      console.log(this.validar_codigo);
     }
   //validar que cuenta2 no este vació
     if(this.obj_notacontable.fo_cuenta2 == 0){
       this.validar_cuenta2=false;
-      console.log(this.validar_cuenta2);
     }else{
       this.validar_cuenta2=true;
-      console.log(this.validar_cuenta2);
     }
   //validar que codigo2 no este vació
     if(this.obj_notacontable.fo_codigo2 == 0){
       this.validar_codigo2=false;
-      console.log(this.validar_codigo2);
     }else{
       this.validar_codigo2=true;
-      console.log(this.validar_codigo2);
     }
   //validar que proveedor no este vació
     if(this.obj_notacontable.fo_proveedor == 0){
       this.validar_proveedor=false;
-      console.log(this.validar_proveedor);
     }else{
       this.validar_proveedor=true;
-      console.log(this.validar_proveedor);
     }
   //validar que proveedor2 no este vació
     if(this.obj_notacontable.fo_proveedor2 == 0){
       this.validar_proveedor2=false;
-      console.log(this.validar_proveedor2);
     }else{
       this.validar_proveedor=true;
-      console.log(this.validar_proveedor2);
     }
   //validar que diferencia no este vació
     if(this.obj_notacontable.diferencia == 0){
       this.validar_diferencia=true;
-      console.log(this.validar_diferencia);
     }else{
       this.validar_diferencia=false;
-      console.log(this.validar_diferencia);
     }
-    console.log(this.obj_notacontable);
     if(this.validar_cuenta == true && this.validar_codigo == true && this.validar_cuenta2 == true && this.validar_codigo2 == true && this.validar_diferencia == true && this.validar_proveedor == true && this.validar_proveedor2 == true){
       this.guardar();
     }
@@ -241,7 +226,6 @@ export class NotacontableComponent {
 
   //---------------Función de guardar--------------------------------------------------------------------------------------------------------
   guardar(): void {
-    console.log('Datos del comprobante antes de guardar:', this.notacontable);
 
     this.snota.insertar(this.obj_notacontable).subscribe((datos:any) => {
       if(datos['resultado'] == 'OK'){

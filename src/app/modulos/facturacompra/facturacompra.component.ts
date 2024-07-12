@@ -83,12 +83,9 @@ export class FacturacompraComponent {
 
     if(this.obj_compra.fo_retencion == 5){
       this.reteporc = 0.025;
-      console.log("la retencion es del 2.5%")
     } else if(this.obj_compra.fo_retencion == 6){
-      console.log("la retencion es del 3.5%");
       this.reteporc = 0.035;
     } else{
-      console.log("la retencion es del 3.5%");
       this.reteporc = 0;
     }
 
@@ -125,39 +122,31 @@ export class FacturacompraComponent {
       this.validar_proveedor=false;
     }else{
       this.validar_proveedor=true;
-      console.log(this.validar_proveedor);
     }
   //validar que codigo no este vació
     if(this.obj_compra.fo_codigo == 0){
       this.validar_codigo=false;
-      console.log(this.validar_codigo);
     }else{
       this.validar_codigo=true;
-      console.log(this.validar_codigo);
     }
   //validar que precio no este vació
     if(this.obj_compra.precio_compra == 0){
       this.validar_precio=false;
     }else{
       this.validar_precio=true;
-      console.log(this.validar_precio);
     }
   //validar que cantidad no este vació
     if(this.obj_compra.cantidad == 0){
       this.validar_cantidad=false;
-      console.log(this.validar_cantidad);
     }else{
       this.validar_cantidad=true;
-      console.log(this.validar_cantidad);
     }
   //validar que metodo de pago no este vació
     if(this.obj_compra.fo_metodo_pago == 0){
       this.validar_metodo_pago=false;
     }else{
       this.validar_metodo_pago=true;
-      console.log(this.validar_metodo_pago);
     }
-    console.log(this.obj_compra);
     if(this.validar_proveedor == true && this.validar_codigo == true && this.validar_precio == true && this.validar_cantidad == true && this.validar_metodo_pago == true){
       this.guardar();
     }
@@ -209,7 +198,7 @@ export class FacturacompraComponent {
     }
   }
   
-  filtrarpro(dato2: any): void {//Función filtrar clientes
+  filtrarpro(dato2: any): void {//Función filtrar proveedor
 
     if(event instanceof KeyboardEvent && event.key === 'Enter'){
       this.showFormulariocli = true;
@@ -222,7 +211,6 @@ export class FacturacompraComponent {
 
   //--------------Función de guardar--------------------------------------------------------------------------------------------------------
   guardar(): void {
-    console.log('Datos del compra antes de guardar:', this.compras);
 
     this.scompra.insertar(this.obj_compra).subscribe((datos:any) => {
       if(datos['resultado'] == 'OK'){

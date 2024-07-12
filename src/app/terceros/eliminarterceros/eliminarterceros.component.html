@@ -1,60 +1,39 @@
-<!--contenido-->
 <div class="eliminartercero">
-    <h2> Eliminar tercero</h2>
+    <h2>Eliminar tercero</h2>
     <div class="eliminartercerocont">
-        <span>Tercero </span>
-        <input type="text" required="required" placeholder="Nombre tercero" class="input-tercero">
-        <button class="buscar">Buscar</button>
+        <span>Tercero</span>
+        <input type="text" required="required" placeholder="Nombre tercero" class="input-tercero" [(ngModel)]="dato">
+        <button class="buscar" (click)="filtrar(dato)">Buscar</button>
     </div>
     <div class="export">
-        <div class="formato">
-            <label> 
-                <input type="radio" name="formato" checked>
-            </label> Mostrar en pantalla
-            <label>
-                <input type="radio" name="formato">
-            </label> Exportar en PDF 
-            <label>
-                <input type="radio" name="formato">
-            </label> Exportar en Excel
+    <div class="formato">
+        <label><input type="radio" name="formato" checked></label> Mostrar en pantalla
+        <label><input type="radio" name="formato"></label> Exportar en PDF
+        <label><input type="radio" name="formato"></label> Exportar en Excel
         </div>
         <div class="imput-secods">
-            <button class="button-back-save"> Atrás</button>
-        </div>
+        <button class="button-back-save">Atrás</button>
+    </div>
     </div>
     <div class="table fluid">
         <table class="mytable">
             <thead class="tablefact">
                 <tr class="headtable">
-                    <th>
-                        Identificación
-                    </th>
-                    <th>
-                        Nombre
-                    </th>
-                    <th>
-                        dirección
-                    </th>
-                    <th>
-                        Teléfono
-                    </th>
+                    <th>Identificación</th>
+                    <th>Nombre</th>
+                    <th>Dirección</th>
+                    <th>Teléfono</th>
                 </tr>
             </thead>
             <tbody class="tablefacts">
-                <tr class="infotable">
-                    <td>
-                        
-                    </td>
-                    <td >
-                        
-                    </td>
-                    <td>
-                        
-                    </td>
+                <tr class="infotable" *ngFor="let item of tercero">
+                    <td>{{item.num_documento}}</td>
+                    <td>{{item.nombre + ' ' + item.apellido}}{{item.razon_social}}</td>
+                    <td>{{item.direccion}}</td>
                     <td class="cantidad">
-                        <div class="cant1"></div>
+                    <div class="cant1">{{item.telefono}}</div>
                         <div class="cant2">
-                            <i class="fa-solid fa-trash-can"></i>
+                            <span class="fa-solid fa-trash-can" title="eliminar" style="cursor: pointer;"></span>
                         </div>
                     </td>
                 </tr>
@@ -62,4 +41,3 @@
         </table>
     </div>
 </div>
-

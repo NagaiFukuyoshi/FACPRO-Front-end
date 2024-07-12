@@ -20,41 +20,43 @@ export class EliminarproductoComponent {
     this.consulta();
   }
 
+  //---------------Función de consulta------------------------------------------------------------------------------------------------------
   consulta(): void {
     this.sprod.consulta().subscribe((resultado: any) => {
       this.producto = resultado;
     });
   }
 
+  //---------------Función de filtrar------------------------------------------------------------------------------------------------------
   filtrar(dato: any): void {
     this.sprod.filtro(dato).subscribe((resultado2: any) => {
       this.pro = resultado2;
-      console.log(this.pro);
     });
   }
 
-  eliminar(id_producto:any): void{
-    
+  //---------------Función de eliminar------------------------------------------------------------------------------------------------------
+  eliminar(id:number){
+
     Swal.fire({
-      title: "¿Estas seguro?",
-      text: "¡Este proceso no es reversible!",
+      title: "¿Estas seguro que quieres eliminar el producto?",
+      text: "Este proceso no podrá ser revertido!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Si, eliminar producto",
+      confirmButtonText: "Si, eliminar",
       cancelButtonText: "Cancelar"
     }).then((result) => {
       if (result.isConfirmed) {
-          this.sprod.eliminar(id_producto).subscribe((dato3:any) =>{
-          
-            if(dato3['resultado'] == 'OK'){
-              this.consulta();
-            }
-          })
+
+        this.sprod.eliminar(id).subscribe((dato3:any)=>{
+          if([dato3['resultado'] == 'OK']){
+            this.consulta();
+          }
+        })
 
         Swal.fire({
-          title: "¡Producto eliminado!",
+          title: "Producto eliminado!",
           text: "El producto ha sido eliminado",
           icon: "success"
         });

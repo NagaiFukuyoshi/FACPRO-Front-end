@@ -1,10 +1,9 @@
-<!--contenido-->
 <div class="eliminarproducto">
     <h2>Eliminar producto</h2>
     <div class="eliminarproductocont">
         <span>Producto </span>
         <input type="text" required="required" placeholder="Nombre producto" class="input-producto" [(ngModel)]="dato">
-        <button type="submit" (click)="filtrar(dato)"  class="buscar">Buscar</button>
+        <button type="submit" (click)="filtrar(dato)" class="buscar">Buscar</button>
     </div>
     <div class="export">
         <div class="formato">
@@ -53,8 +52,8 @@
                     </td>
                     <td class="cantidad">
                         <div class="cant1">{{item.cantidad}}</div>
-                        <div class="cant2">
-                            <i class="fa-solid fa-trash-can"></i>
+                        <div class="cant2" (click)="eliminar(item)">
+                            <span class="fa-solid fa-trash-can" title="eliminar"></span>
                         </div>
                     </td>
                 </tr>

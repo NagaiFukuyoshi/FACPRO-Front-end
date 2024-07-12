@@ -11,29 +11,30 @@ export class ProductoService {
 
   constructor(private http: HttpClient) { }
 
-  consulta() {
+  consulta(): Observable<any> {
     return this.http.get(`${this.url}?control=consulta`);
   }
 
-  eliminar(id_producto: number) {
-      return this.http.get(`${this.url}?control=eliminar&id_producto=${id_producto}`);
+  eliminar(id_producto: number): Observable<any> {
+    return this.http.get(`${this.url}?control=eliminar&id_producto=${id_producto}`);
   }
   
-  insertar(params: any) {
-      return this.http.post(`${this.url}?control=insertar`, JSON.stringify(params), {
-          headers: { 'Content-Type': 'application/json'}
-      });
+  insertar(params: any): Observable<any> {
+    return this.http.post(`${this.url}?control=insertar`, JSON.stringify(params), {
+        headers: { 'Content-Type': 'application/json' }
+    });
   }
   
-  editar(id_producto: number, params: any) {
-      return this.http.post(`${this.url}?control=editar&id_producto=${id_producto}`, JSON.stringify(params), {
-          headers: { 'Content-Type': 'application/json' }
-      });
+  editar(id_producto: number, params: any): Observable<any> {
+    return this.http.post(`${this.url}?control=editar&id_producto=${id_producto}`, JSON.stringify(params), {
+        headers: { 'Content-Type': 'application/json' }
+    });
   }
   
-  filtro(dato: any) {
-      return this.http.get(`${this.url}?control=filtro&dato=${dato}`);
+  filtro(dato: any): Observable<any> {
+    return this.http.get(`${this.url}?control=filtro&dato=${dato}`);
   }
 }
+
 
 
