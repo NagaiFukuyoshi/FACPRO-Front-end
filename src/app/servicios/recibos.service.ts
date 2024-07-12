@@ -6,28 +6,32 @@ import { Injectable } from '@angular/core';
 })
 export class RecibosService {
 
-    url = 'http://localhost/facpro/Backend/Controladores/cuentas.php';
+    url = 'http://localhost/facpro/Backend/Controladores/recibos.php';
 
     constructor(private http: HttpClient) { }
 
-consulta(){
-    return this.http.get(`${this.url}?control=consulta`);
+    consulta() {
+        return this.http.get(`${this.url}?control=consulta`);
+    }
+
+    eliminar(id_recibo: number) {
+        return this.http.get(`${this.url}?control=eliminar&id_recibo=${id_recibo}`);
+    }
+
+    insertar(params: any) {
+        return this.http.post(`${this.url}?control=insertar`, JSON.stringify(params), {
+            headers: { 'Content-Type': 'application/json' }
+        });
+    }
+
+    editar(id_recibo: number, params: any) {
+        return this.http.post(`${this.url}?control=editar&id_recibo=${id_recibo}`, JSON.stringify(params), {
+            headers: { 'Content-Type': 'application/json' }
+        });
+    }
+
+    filtro(dato: any) {
+        return this.http.get(`${this.url}?control=filtro&dato=${dato}`);
+    }
 }
 
-eliminar(id_empleado:number){
-    return this.http.get(`${this.url}?control=consulta&id_empleado=${id_empleado}`);
-}
-
-insertar(params:any){
-    return this.http.post(`${this.url}?control=insertar`, JSON.stringify(params));
-}
-
-editar(id_empleado:number, params:any){
-    return this.http.post(`${this.url}?control=editar&id_empleado=${id_empleado}`, JSON.stringify(params));
-}
-
-filtro(dato:any){
-    return this.http.get(`${this.url}?control=filtro&dato=${dato}`);
-}
-
-}

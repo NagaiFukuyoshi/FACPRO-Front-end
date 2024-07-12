@@ -1,4 +1,3 @@
-<!--contenido-->
 <div class="comprobante">
     <h2>Comprobante de egreso N° 001</h2>
     <div class="comprobanteconten">
@@ -20,7 +19,8 @@
     </div>
     <div class="comprobanteconten">
         <span>Fecha de elaboración </span>
-        <input type="date" required="required" class="input-date">
+        <input type="date" required="required" class="input-date" [(ngModel)]="obj_comprobante.fecha">
+        <span style="color: red;" *ngIf="validar_fecha === false">Seleccione la fecha</span>
     </div>
     <div class="comprobantecont">
         <div class="usuario">
@@ -29,7 +29,7 @@
         </div>
         <div class="imput-secods">
             <button class="button-back-save"> Atrás</button>
-            <button class="button-back-save"> Guardar</button>
+            <button class="button-back-save" (click)="validar()"> Guardar</button>
         </div>
     </div>
     <div class="table fluid">
@@ -56,25 +56,53 @@
                     </th>
                 </tr>
             </thead>
-            <tbody class="tablefacts">
+            <tbody class="tablefacts"> <!--Primer fila-->
                 <tr class="infotable">
                     <td class="tamaño2 td">
-                        <input class="tamaño2" type="text" required="required" (keydown.enter)="filtrarc(dato)" [(ngModel)]="dato">
+                        <input class="tamaño2" name="dato" type="text" required="required" (keydown.enter)="filtrarc(dato)" [(ngModel)]="dato">
+                        <span style="color: red;" *ngIf="validar_codigo === false">Insertar codigo</span>
                     </td>
-                    <td class="codigo tamaño3" style="color: black;">
+                    <td class="codigo tamaño3" style="color: black;" [(ngModel)]="obj_comprobante.fo_cuenta">
                         {{selectedCuenta}}
+                        <span style="color: red;" *ngIf="validar_cuenta === false">Insertar cuenta</span>
                     </td>
-                    <td  *ngFor="let itempro of proveedor" class="codigo tamaño3" style="color: black;">
+                    <td  class="codigo tamaño3"  style="color: black;" [(ngModel)]="obj_comprobante.fo_proveedor">
                         {{selectedProveedor}}{{razon_social}}
+                        <span style="color: red;" *ngIf="validar_proveedor === false">Insertar proveedor</span>
                     </td>
                     <td class="tamaño3">
-                        <input class="tamaño3" type="text">
+                        <input class="tamaño3" name="descripcion" type="text" [(ngModel)]="obj_comprobante.descripcion">
                     </td>
                     <td class="tamaño2">
-                        <input class="tamaño2" type="number">
+                        <input class="tamaño2" name="debito" type="number" [(ngModel)]="obj_comprobante.debito" (ngModelChange)="calcularTotales()">
                     </td>
                     <td class="tamaño2">
-                        <input class="tamaño2" type="number">
+                        <input class="tamaño2" name="credito" type="number" [(ngModel)]="obj_comprobante.credito" (ngModelChange)="calcularTotales()">
+                    </td>
+                </tr>
+            </tbody>
+            <tbody class="tablefacts"> <!--Segunda fila-->
+                <tr class="infotable">
+                    <td class="tamaño2 td">
+                        <input class="tamaño2" type="text" name="dato3" required="required" (keydown.enter)="filtrarc2(dato3)" [(ngModel)]="dato3">
+                        <span style="color: red;" *ngIf="validar_codigo2 === false">Insertar codigo</span>
+                    </td>
+                    <td class="codigo tamaño3" style="color: black;" [(ngModel)]="obj_comprobante.fo_cuenta2">
+                        {{selectedCuenta2}}
+                        <span style="color: red;" *ngIf="validar_cuenta2 === false">Insertar cuenta</span>
+                    </td>
+                    <td  class="codigo tamaño3"  style="color: black;" [(ngModel)]="obj_comprobante.fo_proveedor">
+                        {{selectedProveedor}}{{razon_social}}
+                        <span style="color: red;" *ngIf="validar_proveedor === false">Insertar proveedor</span>
+                    </td>
+                    <td class="tamaño3">
+                        <input class="tamaño3" name="descripcion2" type="text" [(ngModel)]="obj_comprobante.descripcion2">
+                    </td>
+                    <td class="tamaño2">
+                        <input class="tamaño2" name="debito2" type="number" [(ngModel)]="obj_comprobante.debito2" (ngModelChange)="calcularTotales()">
+                    </td>
+                    <td class="tamaño2">
+                        <input class="tamaño2" name="credito2" type="number" [(ngModel)]="obj_comprobante.credito2" (ngModelChange)="calcularTotales()">
                     </td>
                 </tr>
             </tbody>
@@ -102,23 +130,46 @@
             </div>
         </table>
     </div><!--Final despliegue de cuentas-->
+    <div class="formulario2" *ngIf="showFormulario2 === true"><!--Inicio despliegue de cuentas-->
+        <table class="tabla__cuenta codigo" (click)="escoger2(itemc2)" *ngFor="let itemc2 of cuentas2">
+            <div class="escoger">
+                <tbody>
+                    <option>
+                        <tr>
+                            <th class="tamaño pointer">{{itemc2.codigo}}</th>
+                        </tr>
+                    </option>
+                </tbody>
+            </div>
+            <div class="escoger">
+                <tbody>
+                    <option>
+                        <tr>
+                            <th class="pointer">{{itemc2.nombre}}</th>
+                        </tr>
+                    </option>
+                </tbody>
+            </div>
+        </table>
+    </div><!--Final despliegue de cuentas-->
     <div class="foot">
-        <div class="add">
-            <i class="fa-solid fa-circle-plus pointer"></i>
+        <div class="add" id="agregar_celda">
+            <i onclick="agregarfila()" class="fa-solid fa-circle-plus pointer"></i>
         </div>
         <div class="secondinfor">
             <div class="total">
                 <tr class="total2">
-                    <th>Total</th>
-                    <th>0.00</th>
-                    <th>0.00</th>
+                    <th class="tamaño2">Total</th>
+                    <th class="tamaño2" style="color: black;" [(ngModel)]="obj_comprobante.total_debito">{{totalDebito}}</th>
+                    <th class="tamaño2" [(ngModel)]="obj_comprobante.total_credito">{{totalCredito}}</th>
                 </tr>
             </div>
             <div class="total">
                 <tr class="total2">
-                    <th>Diferencia</th>
-                    <th> </th>
-                    <th>0.00</th>
+                    <th class="tamaño2">Diferencia</th>
+                    <th class="tamaño2"> </th>
+                    <th class="tamaño2">{{diferencia2}}</th>
+                    <span style="color: red;" *ngIf="validar_diferencia === false">La diferencia debe ser 0</span>
                 </tr>
             </div>
         </div>

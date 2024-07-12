@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ClienteService } from 'src/app/servicios/cliente.service';
+import { RolService } from 'src/app/servicios/rol.service';
 import { UsuarioService } from 'src/app/servicios/usuario.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-crearusuario',
@@ -8,8 +10,11 @@ import { UsuarioService } from 'src/app/servicios/usuario.service';
   styleUrls: ['./crearusuario.component.scss']
 })
 export class CrearusuarioComponent {
+
+  rol:any;
+
   usuario = {
-    rol:"",
+    fo_rol:0,
     nombres:"",
     apellidos:"",
     correo:"",
@@ -24,11 +29,11 @@ export class CrearusuarioComponent {
   validar_usuario=true;
 
   ngOnInit(): void{
-    this.guardar();
+    this.consulta();
   }
 
 
-  constructor(private susuario:UsuarioService){}
+  constructor(private susuario:UsuarioService, private srol: RolService){}
 
   //función validar campos
   validar(){
@@ -68,27 +73,40 @@ export class CrearusuarioComponent {
     }
     }
 
-    //Función para limpiar los campos
-    limpiar(){
-      this.usuario = {
-        rol:"",
-        nombres:"",
-        apellidos:"",
-        correo:"",
-        password:"",
-        usuario:""
-      }
+  //Función para limpiar los campos
+  limpiar(){
+    this.usuario = {
+      fo_rol:0,
+      nombres:"",
+      apellidos:"",
+      correo:"",
+      password:"",
+      usuario:""
     }
+  }
+  
+  //Función para guardar la información en la base de datos
+  guardar(){
+    this.susuario.insertar(this.usuario).subscribe((datos:any) => {
+      if(datos['resultado'] == 'OK'){
+      }
+    })
+    
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "El Usuario ha sido creado con éxito",
+      showConfirmButton: false,
+      timer: 1500
+    });
+    this.limpiar()
+  }
 
-    //Función para guardar la información en la base de datos
-    guardar(){
-      this.susuario.insertar(this.usuario).subscribe((datos:any) => {
-        if(datos['resultado'] == 'OK'){
-          alert("El usuario ha sido creado con éxito");
-        }
-      })
-
-      this.limpiar()
+  //----------------------Función de consulta----------------------------------------------------------------------------------------------
+    consulta(): void {
+      this.srol.consulta().subscribe((resultado: any) => {
+        this.rol = resultado;
+      });
     }
 }
 

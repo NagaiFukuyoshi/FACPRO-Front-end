@@ -6,55 +6,53 @@
         </div>
         <div class="imput-secods">
             <button class="button-back-save"> Atrás</button>
-            <button class="button-back-save"> Crear</button>
+            <button class="button-back-save" (click)="validar()"> Crear</button>
         </div>       
-    </div>
-    <div class="tipoproducto">
-        <span> Tipo</span>
-        <select name="tipodeproducto" id="tipodeproducto">
-            <option value="">Producto</option>
-            <option value="">Servicio</option>
-        </select>
     </div>
     <div class="containerprod">
         <div class="nombreprod">
             <span>Nombre</span>
-            <input type="text" required="required">
+            <input type="text" required="required" [(ngModel)]="producto.nombre">
         </div>
+        <span style="color:red" *ngIf="validar_nombre == false">Inserte nombre</span>
         <div class="modelo">
             <span>Modelo</span>
-            <input type="text" required="required">
+            <input type="text" required="required" [(ngModel)]="producto.modelo">
         </div>
         <div class="marca">
             <span>Marca</span>
-            <input type="text">           
+            <input type="text" [(ngModel)]="producto.marca">           
+        </div>
+        <div class="codigo">
+            <span>Código</span>
+            <input type="text" [(ngModel)]="producto.codigo">           
         </div>
         <div class="descripcion">
             <span>Descripción</span>
-            <textarea name="descripcionprod" id="descripcionprod" cols="50" rows="3"></textarea>
+            <textarea name="descripcionprod" id="descripcionprod" cols="50" rows="3" [(ngModel)]="producto.descripcion"></textarea>
         </div>
     </div> 
     <div class="valorventas">
         <div class="venta1">
             <span>Precio venta 1</span>
-            <input type="text">
+            <input type="text" [(ngModel)]="producto.precio_venta">
+            <span style="color:red" *ngIf="validar_precioventa == false">Inserte precio de venta</span>
         </div>
         <div class="venta2">
             <span>Precio venta 2</span>
-            <input type="text">
+            <input type="text" [(ngModel)]="producto.precio_venta2">
         </div>
         <div class="venta3">
             <span>Precio venta 3</span>
-            <input type="text">
+            <input type="text" [(ngModel)]="producto.precio_venta3">
         </div>        
     </div>
     <div class="iva">
         <span>IVA</span>
-        <select name="IVA" id="IVA">
-            <option value="">No gravado</option>
-            <option value="">IVA 0%</option>
-            <option value="">IVA 5%</option>
-            <option value="">IVA 19%</option>
+        <select class="iva__datos" name="IVA" id="IVA" [(ngModel)]="producto.fo_iva">
+            <option value="0" label="Seleccione IVA" selected disabled></option>
+            <option *ngFor="let itemt of iva" [value]="itemt.id_iva">{{itemt.nombre}}</option>
         </select>
+        <span style="color:red" *ngIf="validar_foIva == false">Seleccionar IVA</span>
     </div>
 </div>

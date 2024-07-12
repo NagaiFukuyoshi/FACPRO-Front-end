@@ -29,6 +29,35 @@ select{
     border-radius: 5px;
 }
 
+.formulario2{
+    margin-top: -95px;
+    margin-left: 350px;
+}
+
+.codigo{
+    font-size: 14px;
+    font-family: Arial;
+    font-weight: normal;
+}
+
+.tamaño{
+    max-width: 200px;
+}
+
+.tabla__cuenta{
+    width: 200px;
+    z-index: 1;
+    overflow: hidden;
+    border: .5px solid rgb(192, 192, 192);
+    background-color: white;
+    display: flex;
+
+    &:hover{
+        background-color: var(--bs-link-color);
+        transition: 1s;
+    }
+}
+
 .numeroidentificacion{
     display: flex;
     justify-content: space-between;

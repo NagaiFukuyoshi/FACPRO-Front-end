@@ -31,7 +31,7 @@ export class LoginComponent {
     if(tecla == 13 || tecla == ""){
       this.slogin.consulta(this.correo, this.password).subscribe((resultado:any)=>{
         this.usuario = resultado;
-          //console.log(this.usuario);
+          console.log(this.usuario);
           
           if(this.usuario[0].validar == "valida"){
             sessionStorage.setItem("id", this.usuario[0]['id_usuario']);

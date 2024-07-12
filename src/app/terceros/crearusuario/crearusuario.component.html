@@ -12,12 +12,9 @@
     <div class="creartercerocont">
         <div class="tipotercero">
             <span>Rol  </span>
-            <select name="tipotercero" id="tipotercero" [(ngModel)]="usuario.rol">
-                <option value="">Administrador</option>
-                <option value="">contador</option>
-                <option value="">gerente</option>
-                <option value="">ventas</option>
-                <option value="">compras</option>
+            <select name="tipotercero" id="tipotercero" [(ngModel)]="usuario.fo_rol">
+                <option value="0" label="Seleccione rol" selected disabled></option>
+                <option *ngFor="let itemt of rol" [value]="itemt.id_rol">{{itemt.nombre}}</option>
             </select>
         </div>
     </div>  

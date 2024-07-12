@@ -1,13 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductoService {
+export class NotacontableService {
 
-  url = 'http://localhost/facpro/Backend/Controladores/producto.php';
+  url = 'http://localhost/facpro/Backend/Controladores/notacontable.php';
 
   constructor(private http: HttpClient) { }
 
@@ -15,8 +14,8 @@ export class ProductoService {
     return this.http.get(`${this.url}?control=consulta`);
   }
 
-  eliminar(id_producto: number) {
-      return this.http.get(`${this.url}?control=eliminar&id_producto=${id_producto}`);
+  eliminar(id_nota: number) {
+      return this.http.get(`${this.url}?control=eliminar&id_nota=${id_nota}`);
   }
   
   insertar(params: any) {
@@ -25,8 +24,8 @@ export class ProductoService {
       });
   }
   
-  editar(id_producto: number, params: any) {
-      return this.http.post(`${this.url}?control=editar&id_producto=${id_producto}`, JSON.stringify(params), {
+  editar(id_nota: number, params: any) {
+      return this.http.post(`${this.url}?control=editar&id_nota=${id_nota}`, JSON.stringify(params), {
           headers: { 'Content-Type': 'application/json' }
       });
   }
@@ -35,5 +34,3 @@ export class ProductoService {
       return this.http.get(`${this.url}?control=filtro&dato=${dato}`);
   }
 }
-
-

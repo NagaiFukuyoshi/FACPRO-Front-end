@@ -6,69 +6,77 @@
         </div>
         <div class="imput-secods">
             <button class="button-back-save"> Atrás</button>
-            <button class="button-back-save"> Crear</button>
+            <button class="button-back-save" (click)="validar()"> Crear</button>
         </div>       
     </div>
     <div class="creartercerocont">
         <div class="tipotercero">
             <span>Tipo de tercero  </span>
-            <select name="tipotercero" id="tipotercero">
-                <option value="">Persona Natural</option>
-                <option value="">Persona jurídica</option>
+            <select name="tipotercero" id="tipotercero" [(ngModel)]="cliente.fo_tipoTercero">
+                <option value="0" label="Seleccione tercero" selected disabled></option>
+                <option *ngFor="let itemt of tercero" [value]="itemt.id_tipoTercero">{{itemt.nombre}}</option>
+                <span style="color: red;" *ngIf="validar_tipoTercero == false">Seleccione tercero</span>
             </select>
         </div>
         <div class="tipodocumento">
             <span>Tipo de documento  </span>
-            <select name="tipodocumento" id="tipodocumento">
-                <option value="">Cédula de ciudadanía</option>
-                <option value="">Tarjeta de identidad</option>
-                <option value="">Cédula de extranjería</option>
-                <option value="">NIT</option>
-                <option value="">Documento de extranjería</option>
-                <option value="">Pasaporte</option>
+            <select name="tipodocumento" id="tipodocumento" [(ngModel)]="cliente.fo_documento">
+                <option value="0" label="Seleccione documento" selected disabled></option>
+                <option *ngFor="let itemd of documento" [value]="itemd.id_documento">{{itemd.nombre}}</option>
+                <span style="color: red;" *ngIf="validar_documento == false">Seleccione tipo de documento</span>
             </select>
         </div>
     </div>
     <div class="numeroidentificacion">
         <div class="numero">
             <span>Numero de identificación</span>
-            <input type="text" required="required">
-        </div>
-        <div class="cv">
-            <span>CV</span>
-            <input type="text" required="required">
+            <input type="text" required="required" [(ngModel)]="cliente.num_documento">
+            <span style="color: red;" *ngIf="validar_numDocumento == false">Escriba num identificación</span>
         </div>
     </div>   
     <div class="info">
         <div class="infotercero">
             <div class="nombres">
                 <span>Nombres</span>
-                <input type="text" required="required">
+                <input type="text" required="required" [(ngModel)]="cliente.nombre">
             </div>
             <div class="apellidos">
                 <span>Apellidos</span>
-                <input type="text" required="required">
+                <input type="text" required="required" [(ngModel)]="cliente.apellido">
             </div>
             <div class="apellidos">
                 <span>Razón social</span>
-                <input type="text" required="required">
+                <input type="text" required="required" [(ngModel)]="cliente.razon_social">
             </div>
             <div class="direccion">
                 <span>Dirección</span>
-                <input type="text" required="required">
+                <input type="text" required="required" [(ngModel)]="cliente.direccion">
+                <span style="color: red;" *ngIf="validar_direccion == false">Escriba la dirección</span>
             </div>
             <div class="ciudad">
                 <span>Ciudad</span>
-                <input type="text" required="required">
+                <input type="text" required="required" [value]="selectedCiudad" (keydown.enter)="filtrarc(dato2)" [(ngModel)]="dato2">
+                <span style="color: red;" *ngIf="validar_ciudad == false">Seleccione la ciudad</span>
             </div>
             <div class="telefono">
                 <span>Teléfono</span>
-                <input type="number" required="required">
+                <input type="text" required="required" [(ngModel)]="cliente.telefono">
+                <span style="color: red;" *ngIf="validar_telefono == false">Escriba el teléfono</span>
             </div>
             <div class="email">
                 <span>Correo</span>
-                <input type="email" required="required">
+                <input type="text" required="required" [(ngModel)]="cliente.email">
+                <span style="color: red;" *ngIf="validar_email == false">Escriba el correo</span>
             </div>
         </div>
+    </div>
+    <div class="formulario2" *ngIf="showFormularioc">
+        <table class="tabla__cuenta codigo">
+            <tbody>
+                <tr *ngFor="let itemc of ciudad" (click)="escogerc(itemc)">
+                    <td class="tamaño pointer">{{itemc.nombre}}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

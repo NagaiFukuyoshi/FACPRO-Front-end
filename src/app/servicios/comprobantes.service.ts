@@ -1,13 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProductoService {
+export class ComprobantesService {
 
-  url = 'http://localhost/facpro/Backend/Controladores/producto.php';
+  url = 'http://localhost/facpro/Backend/Controladores/comprobantes.php';
 
   constructor(private http: HttpClient) { }
 
@@ -15,18 +14,18 @@ export class ProductoService {
     return this.http.get(`${this.url}?control=consulta`);
   }
 
-  eliminar(id_producto: number) {
-      return this.http.get(`${this.url}?control=eliminar&id_producto=${id_producto}`);
+  eliminar(id_comprobante: number) {
+      return this.http.get(`${this.url}?control=eliminar&id_comprobante=${id_comprobante}`);
   }
   
   insertar(params: any) {
       return this.http.post(`${this.url}?control=insertar`, JSON.stringify(params), {
-          headers: { 'Content-Type': 'application/json'}
+          headers: { 'Content-Type': 'application/json' }
       });
   }
   
-  editar(id_producto: number, params: any) {
-      return this.http.post(`${this.url}?control=editar&id_producto=${id_producto}`, JSON.stringify(params), {
+  editar(id_comprobante: number, params: any) {
+      return this.http.post(`${this.url}?control=editar&id_comprobante=${id_comprobante}`, JSON.stringify(params), {
           headers: { 'Content-Type': 'application/json' }
       });
   }
@@ -35,5 +34,3 @@ export class ProductoService {
       return this.http.get(`${this.url}?control=filtro&dato=${dato}`);
   }
 }
-
-

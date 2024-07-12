@@ -70,7 +70,7 @@ span{
 /* Estilos para hacer responsive */
 @media only screen and (max-width: 600px) {
     .crearproducto{
-      margin-left: -150px;
+        margin-left: -150px;
     }
 
     .header{
@@ -94,13 +94,13 @@ span{
     textarea{
         width: 250px;
     }
-  
+
     h2{
-      font-size: 19px;
+        font-size: 19px;
     }
-  
+
     .crearproducto input{
-      width: 250px;
+        width: 250px;
     }
 
     .crearproductocont{
@@ -112,4 +112,4 @@ span{
     .crearproductoconten{
         width: 250px;
     }
-  }
+}

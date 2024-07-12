@@ -1,3 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+div{
+    background-image: url(../../../img/fondo.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 91vh;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+h1,
+span{
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
 h1{
-    margin: auto;
+    font-size: 80px;
+}
+
+span{
+    font-size: 40px;
+}
+
+.welcome{
+    padding-top: 10px;
 }

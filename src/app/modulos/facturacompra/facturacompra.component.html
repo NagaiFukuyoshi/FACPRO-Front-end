@@ -4,10 +4,11 @@
         <div class="facturacompracont">
             <span>Proveedor </span>
             <input type="text" required="required" placeholder="Nombre proveedor" class="input-client" (keydown.enter)="filtrarpro(dato2)" [(ngModel)]="dato2">
+            <span style="color: red;" *ngIf="validar_proveedor === false">Agregar proveedor</span>
         </div>
         <div class="facturacompracont">
             <span>Fecha de elaboración </span>
-            <input type="date" required="required" class="input-date">
+            <input type="date" required="required" class="input-date" [(ngModel)]="obj_compra.fecha">
         </div>
         <div class="facturacompraconten">
             <div class="usuario">
@@ -16,7 +17,7 @@
             </div>
             <div class="imput-secods">
                 <button class="button-back-save"> Atrás</button>
-                <button class="button-back-save"> Guardar</button>
+                <button class="button-back-save" (click)="validar()"> Guardar</button>
             </div>
         </div>
         <div class="table fluid">
@@ -30,7 +31,7 @@
                             Producto
                         </th>
                         <th class="tamaño3">
-                            Descripción
+                            Descripción prod
                         </th>
                         <th class="tamaño2">
                             Precio
@@ -50,24 +51,27 @@
                     <tr class="infotable">
                         <td class="tamaño2 td">
                             <input class="tamaño2" type="text" required="required" (keydown.enter)="filtrarp(dato)" [(ngModel)]="dato">
+                            <span style="color: red;" *ngIf="validar_codigo === false">Insertar codigo</span>
                         </td>
                         <td class="codigo tamaño3" style="color: black;">
                             {{selectedNombre}}
                         </td>
-                        <td>
-                            <input class="tamaño3" type="text">
+                        <td class="tamaño3">
+                            {{selectedDescripcion}}
                         </td>
                         <td class="tamaño2">
-                            <input class="tamaño2" type="text">
+                            <input style="text-align: end;" class="tamaño2" type="number" [(ngModel)]="obj_compra.precio_compra" (ngModelChange)="calcularTotales()">
+                            <span style="color: red;" *ngIf="validar_precio === false">Agregar precio</span>
                         </td>
                         <td class="tamaño2">
-                            <input class="tamaño2" type="number">
+                            <input class="tamaño2" style="text-align: end;" type="number" [(ngModel)]="obj_compra.cantidad" (ngModelChange)="calcularTotales()">
+                            <span style="color: red;" *ngIf="validar_cantidad === false">Agregar cantidad</span>
                         </td>
-                        <td class="tamaño2">
-                            <input class="tamaño2" type="number">
+                        <td class="tamaño2" style="text-align: end;">
+                            {{iva | currency}}
                         </td>
-                        <td class="tamaño2">
-                            <input class="tamaño2" type="number">
+                        <td class="tamaño2" style="text-align: end;">
+                            {{total | currency}}
                         </td>
                     </tr>
                 </tbody>
@@ -115,50 +119,48 @@
                 </div>
                 <div class="metodopago">
                     <label for="option">Método de pago </label>
-                    <select name="metododepago" id="metododepago">
-                        <option value="">Crédito</option>
-                        <option value="">Efectivo</option>
-                        <option value="">Bancolombia</option>
-                        <option value="">Davivienda</option>
+                    <select name="tipotercero" id="tipotercero" [(ngModel)]="obj_compra.fo_metodo_pago">
+                        <option value="0" label="Seleccione pago" selected disabled></option>
+                        <option *ngFor="let itemm of metodo" [value]="itemm.id_metodo_pago">{{itemm.nombre}}</option>
+                        <span style="color: red;" *ngIf="validar_metodo_pago === false">Agregar método de pago</span>
                     </select>
                 </div>
             </div>
             <div class="secondinfor">
                 <div class="total">
                     <tr class="total2">
-                        <th>Subtotal</th>
-                        <th>0.00</th>
-                        <th>0.00</th>
+                        <th>Subtotal neto</th>
+                        <th></th>
+                        <th>{{compra_total | currency}}</th>
                     </tr>
                 </div>
                 <div class="total">
                     <tr class="total2">
                         <th>IVA</th>
                         <th> </th>
-                        <th>0.00</th>
+                        <th>{{iva | currency}}</th>
                     </tr>
                 </div>
                 <div class="total">
                     <tr class="total2">
                         <th>Retenciones</th>
                         <th>
-                            <select name="retenciones" id="retenciones">
-                                <option value="">Compra 2.5%</option>
-                                <option value="">Compra 3.5%</option>
-                                <option value="">ReteIVA 15%</option>
+                            <select name="tipotercero" id="tipotercero" [(ngModel)]="obj_compra.fo_retencion" (ngModelChange)="calcularTotales()">
+                                <option value="0" label="Retención" selected disabled></option>
+                                <option *ngFor="let itemr of retencion" [value]="itemr.id_retencion">{{itemr.nombre}}</option>
                             </select>
                         </th>
-                        <th>0.00</th>
+                        <th>{{retefuente | currency}}</th>
                     </tr>
                 </div>
                 <div class="total">
                     <tr class="total2">
-                        <th>Diferencia</th>
+                        <th>Total factura</th>
                         <th> </th>
-                        <th>0.00</th>
+                        <th>{{total_factura | currency}}</th>
                     </tr>
                 </div>
             </div>
         </div>
-            <textarea resize="none" class="Descripcion" name="Descripción" id="Descripción" cols="90" rows="5" placeholder="Descripción"></textarea>
+            <textarea resize="none" class="Descripcion" name="Descripción" id="Descripción" cols="90" rows="5" placeholder="Descripción" [(ngModel)]="obj_compra.descripcion"></textarea>
     </div>   
