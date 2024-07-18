@@ -56,7 +56,8 @@ export class FacturacompraComponent {
     fo_descripcion:0,
     fo_retencion:0,
     fo_metodo_pago:0,
-    descripcion: ""
+    descripcion: "",
+    fo_tipo_factura:1
   }
 
   validar_proveedor = true;
@@ -170,7 +171,8 @@ export class FacturacompraComponent {
       fo_descripcion:0,
       fo_retencion:0,
       fo_metodo_pago:0,
-      descripcion: ""
+      descripcion: "",
+      fo_tipo_factura:1
     }
 
     this.dato = "";

@@ -1,5 +1,4 @@
-<!--contenido-->
-<div class="editarproducto">
+<div class="editarproducto" *ngIf="edit == false">
     <h2>Editar producto</h2>
     <div class="editarproductocont">
         <span>Producto </span>
@@ -53,7 +52,7 @@
                     </td>
                     <td class="cantidad">
                         <div class="cant1">{{item.cantidad}}</div>
-                        <div class="cant2">
+                        <div class="cant2" (click)="cargar_datos(item, item.id_producto)">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </div>
                     </td>
@@ -62,3 +61,66 @@
         </table>
     </div>
 </div>
+
+<div class="crearproducto" *ngIf="edit == true">
+    <div class="header">
+        <div class="subheader1">
+            <h2>Editar producto</h2>
+        </div>    
+    </div>
+    <div class="containerprod">
+        <div class="nombreprod">
+            <span>Nombre</span>
+            <input type="text" required="required" [(ngModel)]="obj_producto.nombre">
+        </div>
+        <span style="color:red" *ngIf="validar_nombre == false">Inserte nombre</span>
+        <div class="modelo">
+            <span>Modelo</span>
+            <input type="text" required="required" [(ngModel)]="obj_producto.modelo">
+        </div>
+        <div class="marca">
+            <span>Marca</span>
+            <input type="text" [(ngModel)]="obj_producto.marca">           
+        </div>
+        <div class="codigo">
+            <span>Código</span>
+            <input type="text" [(ngModel)]="obj_producto.codigo">           
+        </div>
+        <div class="descripcion">
+            <span>Descripción</span>
+            <textarea name="descripcionprod" id="descripcionprod" cols="50" rows="3" [(ngModel)]="obj_producto.descripcion"></textarea>
+        </div>
+    </div> 
+    <div class="valorventas">
+        <div class="venta1">
+            <span>Cantidad</span>
+            <input type="text" [(ngModel)]="obj_producto.cantidad">
+        </div>
+        <div class="venta1">
+            <span>Precio venta 1</span>
+            <input type="text" [(ngModel)]="obj_producto.precio_venta">
+            <span style="color:red" *ngIf="validar_precioventa == false">Inserte precio de venta</span>
+        </div>
+        <div class="venta2">
+            <span>Precio venta 2</span>
+            <input type="text" [(ngModel)]="obj_producto.precio_venta2">
+        </div>
+        <div class="venta3">
+            <span>Precio venta 3</span>
+            <input type="text" [(ngModel)]="obj_producto.precio_venta3">
+        </div>        
+    </div>
+    <div class="iva">
+        <span>IVA</span>
+        <select class="iva__datos" name="IVA" id="IVA" [(ngModel)]="obj_producto.fo_iva">
+            <option value="0" label="Seleccione IVA" selected disabled></option>
+            <option *ngFor="let itemt of iva" [value]="itemt.id_iva">{{itemt.nombre}}</option>
+        </select>
+        <span style="color:red" *ngIf="validar_foIva == false">Seleccionar IVA</span>
+    </div>
+    <div class="imput-secods2">
+        <button class="button-back-save" (click)="cancelar()"> Cancelar</button>
+        <button class="button-back-save" (click)="validar()"> Guardar</button>
+    </div>   
+</div>
+

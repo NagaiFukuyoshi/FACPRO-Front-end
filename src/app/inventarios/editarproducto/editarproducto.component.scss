@@ -95,6 +95,47 @@ span{
     font-weight: 650;
 }
 
+//estilos formulario de editar
+.crearproducto{
+  width: 620px;
+  background-color: rgb(237, 234, 234);
+  padding: 10px 40px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-top: 5px;
+
+  h2{
+    text-align: center;
+  }
+}
+
+.valorventas{
+  padding: 10px;
+
+  div{
+    padding: 10px;
+  }
+}
+
+.imput-secods2{
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  width: 250px;
+}
+
+.containerprod{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  div{
+    padding: 10px;
+  }
+}
+
 /* Estilos para hacer responsive */
 @media only screen and (max-width: 600px) {
     .editarproducto{

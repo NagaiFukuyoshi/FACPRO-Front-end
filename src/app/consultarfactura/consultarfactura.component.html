@@ -3,9 +3,9 @@
     <h2>Consultar factura</h2>
     <div class="buscarfacturaconten">
         <span>Tipo de factura </span>
-        <select name="tipofactura" id="tipofactura">
-            <option value="Factura de compra">Factura de compra</option>
-            <option value="Factura de venta">Factura de venta</option>
+        <select name="tipofactura" id="tipofactura" [(ngModel)]="tipo_factura">
+            <option value="0" label="Factura" selected disabled></option>
+            <option *ngFor="let itemt of tipoFactura" [value]="itemt.id_tipo_factura">{{itemt.nombre}}</option>
         </select>
     </div>
     <div class="buscarfacturaconten">
@@ -19,12 +19,12 @@
     <div class="buscarfacturacont">
         <span>Fecha final </span>
         <input type="date" required="required" class="input-producto">
-        <button class="buscar">Buscar</button>
+        <button class="buscar" (click)="filtro()">Buscar</button>
     </div>
     <div class="export">
         <div class="formato">
             <label> 
-                <input type="radio" name="formato">
+                <input type="radio" name="formato" checked>
             </label> Mostrar en pantalla
             <label>
                 <input type="radio" name="formato">
