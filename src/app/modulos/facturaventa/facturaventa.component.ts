@@ -6,6 +6,8 @@ import { ProductoService } from 'src/app/servicios/producto.service';
 import { RetencionesService } from 'src/app/servicios/retenciones.service';
 import { VentasService } from 'src/app/servicios/ventas.service';
 import Swal from 'sweetalert2';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-facturaventa',
@@ -38,6 +40,7 @@ export class FacturaventaComponent {
   showFormulario= false;
   showFormulariocli= false;
   add = false;
+  form_venta = false;
 
 
   obj_venta = {
@@ -204,7 +207,7 @@ export class FacturaventaComponent {
       timer: 1500
     });
 
-    this.limpiar()
+    this.form_venta = true;
   }
 
   //--------------Función de filtrar--------------------------------------------------------------------------------------------------------
@@ -253,5 +256,57 @@ export class FacturaventaComponent {
       this.showFormulariocli = false; // Para ocultar el formulario
       this.dato2 = this.selectedCliente;
     }
+  }
+
+  //--------------Función de generar PDF---------------------------------------------------------------------------------------------------
+  generarPDF(): void {
+    const data = document.getElementById('forventa');
+    if (data) {
+      html2canvas(data, { scale: 2 }).then(canvas => {
+        const imgWidth = 97; // Ancho de una hoja A4 en horizontal
+        const pageHeight = 210; // Altura de una hoja A4 en horizontal
+        let imgHeight = canvas.height * imgWidth / canvas.width;
+        let heightLeft = imgHeight;
+  
+        const contentDataURL = canvas.toDataURL('image/png');
+        const pdf = new jsPDF('l', 'mm', 'a4'); // Cambiado a 'l' para orientación horizontal
+  
+        let position = 0;
+  
+        pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+  
+        while (heightLeft > 0) {
+          position = heightLeft - imgHeight;
+          pdf.addPage();
+          pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+          heightLeft -= pageHeight;
+        }
+  
+        const currentDate = new Date();
+        const formattedDate = currentDate.toLocaleDateString();
+        const formattedTime = currentDate.toLocaleTimeString();
+        pdf.setFontSize(12);
+        pdf.text(`Fecha de generación: ${formattedDate} ${formattedTime}`, 10, pageHeight - 10);
+        pdf.save('FacturaVenta.pdf');
+      });
+    }
+
+    this.limpiar();
+    this.form_venta = false;
+  }
+  
+  //---------------Función para imprimir factura de venta---------------------------------------------------------------------------------
+  imprimirRecibo(): void {
+    const printContents = document.getElementById('forventa')!.innerHTML;
+    const originalContents = document.body.innerHTML;
+
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
+    window.location.reload();
+
+    this.limpiar();
+    this.form_venta = false;
   }
 }

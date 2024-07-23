@@ -6,6 +6,8 @@ import { ProductoService } from 'src/app/servicios/producto.service';
 import { ProveedorService } from 'src/app/servicios/proveedor.service';
 import { RetencionesService } from 'src/app/servicios/retenciones.service';
 import Swal from 'sweetalert2';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-facturacompra',
@@ -38,6 +40,7 @@ export class FacturacompraComponent {
   showFormulario= false;
   showFormulariocli= false;
   add = false;
+  form_compra = false;
 
 
   obj_compra = {
@@ -188,7 +191,7 @@ export class FacturacompraComponent {
 
   }
 
-  //--------------Función de filtrar------------------------------------------------------------------------------------------------------
+  //--------------Función de filtrar--------------------------------------------------------------------------------------------------------
   filtrarp(dato: any): void {//Función filtrar codigo y cuenta
 
     if(event instanceof KeyboardEvent && event.key === 'Enter'){
@@ -227,10 +230,10 @@ export class FacturacompraComponent {
       timer: 1500
     });
 
-    this.limpiar()
+    this.form_compra = true;
   }
 
-  //--------------Función de escoger-----------------------------------------------------------------------------------------------------
+  //--------------Función de escoger--------------------------------------------------------------------------------------------------------
   escoger(itemp: any): void {//Función escoger el producto
     this.selectedNombre = itemp.nombre;
     this.selectedCodigo = itemp.codigo;
@@ -253,5 +256,57 @@ export class FacturacompraComponent {
       this.showFormulariocli = false; // Para ocultar el formulario
       this.dato2 = this.selectedProveedor;
     }
+  }
+
+  //--------------Función de generar PDF---------------------------------------------------------------------------------------------------
+  generarPDF(): void {
+    const data = document.getElementById('forcompra');
+    if (data) {
+      html2canvas(data, { scale: 2 }).then(canvas => {
+        const imgWidth = 97; // Ancho de una hoja A4 en horizontal
+        const pageHeight = 210; // Altura de una hoja A4 en horizontal
+        let imgHeight = canvas.height * imgWidth / canvas.width;
+        let heightLeft = imgHeight;
+  
+        const contentDataURL = canvas.toDataURL('image/png');
+        const pdf = new jsPDF('l', 'mm', 'a4'); // Cambiado a 'l' para orientación horizontal
+  
+        let position = 0;
+  
+        pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+  
+        while (heightLeft > 0) {
+          position = heightLeft - imgHeight;
+          pdf.addPage();
+          pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+          heightLeft -= pageHeight;
+        }
+  
+        const currentDate = new Date();
+        const formattedDate = currentDate.toLocaleDateString();
+        const formattedTime = currentDate.toLocaleTimeString();
+        pdf.setFontSize(12);
+        pdf.text(`Fecha de generación: ${formattedDate} ${formattedTime}`, 10, pageHeight - 10);
+        pdf.save('FacturaCompra.pdf');
+      });
+    }
+
+    this.limpiar();
+    this.form_compra = false;
+  }
+  
+  //---------------Función para imprimir factura de compra---------------------------------------------------------------------------------
+  imprimirRecibo(): void {
+    const printContents = document.getElementById('forcompra')!.innerHTML;
+    const originalContents = document.body.innerHTML;
+
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
+    window.location.reload();
+
+    this.limpiar();
+    this.form_compra = false;
   }
 }

@@ -100,6 +100,7 @@ input{
 
 .tamaño2{
   max-width: 100px;
+  min-width: 100px;
 }
 
 .tamaño3{
@@ -114,6 +115,35 @@ tr, td{
   overflow: hidden;
 }
 
+#formcomprobante {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.botones{
+  display: flex;
+  width: 1050px;
+  margin: auto;
+  justify-content: center;
+  justify-items: center;
+
+  button{
+    margin: 20px;
+  }
+}
+
+.foot2{
+  display: flex;
+  flex-direction: column;
+  justify-items: end;
+  margin-left: 500px;
+  width: 550px;
+
+  .tamaño2{
+    min-width: 150px;
+  }
+}
 
 .mytable{
   position: relative;

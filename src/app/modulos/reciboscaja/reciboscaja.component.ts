@@ -4,6 +4,8 @@ import { ClienteService } from 'src/app/servicios/cliente.service';
 import { CuentasService } from 'src/app/servicios/cuentas.service';
 import { RecibosService } from 'src/app/servicios/recibos.service';
 import Swal from 'sweetalert2';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-reciboscaja',
@@ -36,6 +38,7 @@ export class ReciboscajaComponent implements OnInit {
   totalCredito = 0;
   diferencia2 = 0;
   consecutivo:any;
+  form_recibo =false;
 
   obj_recibo = {
     fo_cliente: 0,
@@ -117,7 +120,7 @@ export class ReciboscajaComponent implements OnInit {
   }
 
   //--------------Función de limpiar--------------------------------------------------------------------------------------------------------
-  limpiar(){//Función limpiar recibo de caja
+  limpiar(): void {//Función limpiar recibo de caja
     this.obj_recibo = {
       fo_cliente: 0,
       fecha: "",
@@ -145,6 +148,7 @@ export class ReciboscajaComponent implements OnInit {
     this.selectedCliente = "";
     this.selectedCuenta = "";
     this.selectedCuenta2 = "";
+    this.diferencia2 = 0;
   }
 
   //--------------Función de validar--------------------------------------------------------------------------------------------------------
@@ -192,12 +196,6 @@ export class ReciboscajaComponent implements OnInit {
 
       if(this.validar_cuenta == true && this.validar_codigo == true && this.validar_cuenta2 == true && this.validar_codigo2 == true && this.validar_diferencia == true && this.validar_cliente == true){
         this.guardar();
-        /*console.log(this.validar_cuenta);
-        console.log(this.validar_codigo);
-        console.log(this.validar_cuenta2);
-        console.log(this.validar_codigo2);
-        console.log(this.validar_diferencia);
-        console.log(this.validar_cliente);*/
       }
   }
 
@@ -217,7 +215,7 @@ export class ReciboscajaComponent implements OnInit {
       timer: 1500
     });
 
-    this.limpiar()
+    this.form_recibo = true;
   }
 
   //---------------Función de escoger-------------------------------------------------------------------------------------------------------
@@ -254,6 +252,59 @@ export class ReciboscajaComponent implements OnInit {
       this.dato2 = this.selectedCliente;
     }
   }
+
+  //----------------------Función generar PDF-------------------------------------------------------------------------------------------
+  generarPDF(): void {
+    const data = document.getElementById('formrecibo');
+    if (data) {
+      html2canvas(data, { scale: 2 }).then(canvas => {
+        const imgWidth = 297; // Ancho de una hoja A4 en horizontal
+        const pageHeight = 210; // Altura de una hoja A4 en horizontal
+        let imgHeight = canvas.height * imgWidth / canvas.width;
+        let heightLeft = imgHeight;
+  
+        const contentDataURL = canvas.toDataURL('image/png');
+        const pdf = new jsPDF('l', 'mm', 'a4'); // Cambiado a 'l' para orientación horizontal
+  
+        let position = 0;
+  
+        pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+  
+        while (heightLeft > 0) {
+          position = heightLeft - imgHeight;
+          pdf.addPage();
+          pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+          heightLeft -= pageHeight;
+        }
+  
+        const currentDate = new Date();
+        const formattedDate = currentDate.toLocaleDateString();
+        const formattedTime = currentDate.toLocaleTimeString();
+        pdf.setFontSize(12);
+        pdf.text(`Fecha de generación: ${formattedDate} ${formattedTime}`, 10, pageHeight - 10);
+        pdf.save('Recibo-caja.pdf');
+      });
+    }
+
+    this.limpiar();
+    this.form_recibo = false;
+  }
+  
+  //---------------Función para imprimir el recibo-------------------------------------------------------------------------------------------
+  imprimirRecibo(): void {
+    const printContents = document.getElementById('formrecibo')!.innerHTML;
+    const originalContents = document.body.innerHTML;
+
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
+    window.location.reload();
+
+    this.limpiar();
+    this.form_recibo = false;
+  }
 }
+
 
 

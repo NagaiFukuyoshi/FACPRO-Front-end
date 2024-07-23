@@ -1,4 +1,4 @@
-<div class="comprobante">
+<div class="comprobante" *ngIf="form_recibo == false">
     <h2>Comprobante de egreso N° 001</h2>
     <div class="comprobanteconten">
         <span>Proveedor </span>
@@ -74,10 +74,10 @@
                         <input class="tamaño3" name="descripcion" type="text" [(ngModel)]="obj_comprobante.descripcion">
                     </td>
                     <td class="tamaño2">
-                        <input class="tamaño2" name="debito" type="number" [(ngModel)]="obj_comprobante.debito" (ngModelChange)="calcularTotales()">
+                        <input class="tamaño2" name="debito" style="text-align: end;" type="number" [(ngModel)]="obj_comprobante.debito" (ngModelChange)="calcularTotales()">
                     </td>
                     <td class="tamaño2">
-                        <input class="tamaño2" name="credito" type="number" [(ngModel)]="obj_comprobante.credito" (ngModelChange)="calcularTotales()">
+                        <input class="tamaño2" name="credito" style="text-align: end;" type="number" [(ngModel)]="obj_comprobante.credito" (ngModelChange)="calcularTotales()">
                     </td>
                 </tr>
             </tbody>
@@ -99,10 +99,10 @@
                         <input class="tamaño3" name="descripcion2" type="text" [(ngModel)]="obj_comprobante.descripcion2">
                     </td>
                     <td class="tamaño2">
-                        <input class="tamaño2" name="debito2" type="number" [(ngModel)]="obj_comprobante.debito2" (ngModelChange)="calcularTotales()">
+                        <input class="tamaño2" name="debito2" style="text-align: end;" type="number" [(ngModel)]="obj_comprobante.debito2" (ngModelChange)="calcularTotales()">
                     </td>
                     <td class="tamaño2">
-                        <input class="tamaño2" name="credito2" type="number" [(ngModel)]="obj_comprobante.credito2" (ngModelChange)="calcularTotales()">
+                        <input class="tamaño2" name="credito2" style="text-align: end;" type="number" [(ngModel)]="obj_comprobante.credito2" (ngModelChange)="calcularTotales()">
                     </td>
                 </tr>
             </tbody>
@@ -174,5 +174,116 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="comprobante formcaja" id="formcomprobante" *ngIf="form_recibo == true">
+    <h2>comprobante de egreso N° 001</h2>
+        <div class="recibocajacont">
+            <span>Cliente </span>
+            <span style="font-weight: 100;" class="user">{{selectedProveedor}}</span>
+        </div>
+        <div class="recibocajacont">
+            <span>Fecha de elaboración </span>
+            <span class="user">{{obj_comprobante.fecha}}</span>
+        </div>
+        <div class="recibocajaconten">
+            <div class="usuario">
+                <span>Usuario: </span>
+                <span class="user">{{nombres + " " + apellidos}}</span>
+            </div>
+        </div>
+        <div class="table fluid">
+            <table class="mytable">
+                <thead class="tablefact">
+                    <tr class="headtable">
+                        <th class="tamaño2 td">
+                            Código
+                        </th>
+                        <th class="tamaño3">
+                            Cuenta contable
+                        </th>
+                        <th class="tamaño3">
+                            Tercero
+                        </th>
+                        <th class="tamaño3">
+                            Descripción
+                        </th>
+                        <th class="tamaño2">
+                            Débito
+                        </th>
+                        <th class="tamaño2">
+                            Crédito
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="tablefacts"> <!--Primer fila-->
+                    <tr class="infotable">
+                        <td class="tamaño2 td">
+                            {{dato}}
+                        </td>
+                        <td class="codigo tamaño3" style="color: black;" [(ngModel)]="obj_comprobante.fo_cuenta">
+                            {{selectedCuenta}}
+                        </td>
+                        <td  class="codigo tamaño3"  style="color: black;" [(ngModel)]="obj_comprobante.fo_proveedor">
+                            {{selectedProveedor}}
+                        </td>
+                        <td class="tamaño3">
+                            {{obj_comprobante.descripcion}}
+                        </td>
+                        <td class="tamaño2" style="text-align: end;">
+                            {{obj_comprobante.debito | currency}}
+                        </td>
+                        <td class="tamaño2" style="text-align: end;">
+                            {{obj_comprobante.credito | currency}}
+                        </td>
+                    </tr>
+                </tbody>
+                <tbody class="tablefacts"> <!--Segunda fila-->
+                    <tr class="infotable">
+                        <td class="tamaño2 td">
+                            {{dato3}}
+                        </td>
+                        <td class="codigo tamaño3" style="color: black;" [(ngModel)]="obj_comprobante.fo_cuenta2">
+                            {{selectedCuenta2}}
+                        </td>
+                        <td  class="codigo tamaño3"  style="color: black;" [(ngModel)]="obj_comprobante.fo_proveedor">
+                            {{selectedProveedor}}
+                        </td>
+                        <td class="tamaño3">
+                            {{obj_comprobante.descripcion2}}
+                        </td>
+                        <td class="tamaño2" style="text-align: end;">
+                            {{obj_comprobante.debito2 | currency}}
+                        </td>
+                        <td class="tamaño2" style="text-align: end;">
+                            {{obj_comprobante.credito2 | currency}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="foot2">
+            <div class="secondinfor">
+                <div class="total">
+                    <tr class="total2">
+                        <th class="tamaño3">Total</th>
+                        <th class="tamaño2" style="color: black;" style="text-align: end;">{{totalDebito | currency}}</th>
+                        <th class="tamaño2" style="text-align: end;">{{totalCredito | currency}}</th>
+                    </tr>
+                </div>
+                <div class="total">
+                    <tr class="total2">
+                        <th class="tamaño3">Diferencia</th>
+                        <th class="tamaño2"> </th>
+                        <th class="tamaño2" style="text-align: end;">{{diferencia2 | currency}}</th>
+                    </tr>
+                </div>
+            </div>
+        </div>
+</div>
+
+<div class="imput-secods botones" *ngIf="form_recibo == true">
+    <button class="button-back-save" (click)="imprimirRecibo()"> Imprimir</button>
+    <button class="button-back-save" (click)="generarPDF()"> Descargar</button>
 </div>
 

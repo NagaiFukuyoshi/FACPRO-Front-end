@@ -11,17 +11,17 @@
                 <input type="radio" name="formato" checked>
             </label> Mostrar en pantalla
             <label>
-                <input type="radio" name="formato">
+                <input type="radio" name="formato" (click)="generarPDF()">
             </label> Exportar en PDF 
             <label>
-                <input type="radio" name="formato">
+                <input type="radio" name="formato" (click)="generarExcel()">
             </label> Exportar en Excel
         </div>
         <div class="imput-secods">
             <button class="button-back-save"> Atrás</button>
         </div>
     </div>
-    <div class="table fluid">
+    <div class="table fluid" id="tabla_producto">
         <table class="mytable">
             <thead class="tablefact">
                 <tr class="headtable">

@@ -103,6 +103,36 @@ input{
   font-weight: normal;
 }
 
+#forventa {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.botones{
+  display: flex;
+  width: 1050px;
+  margin: auto;
+  justify-content: center;
+  justify-items: center;
+  margin-top: 40px;
+
+  button{
+    margin: 20px;
+  }
+}
+
+.imput2{
+  appearance: none;
+  -webkit-appearance: none; /* Safari y Chrome */
+  -moz-appearance: none; /* Firefox */
+  border: none;
+  outline: none;
+  padding: 8px 12px;
+  font-size: 16px;
+  width: 100%;
+}
+
 .tamaño{
   max-width: 75px;
 }

@@ -1,4 +1,4 @@
-<div class="ajustec">
+<div class="ajustec" *ngIf="form_ajuste == true">
     <h2>Ajuste contable N° 001</h2>
     <div class="ajusteconten">
         <span>Fecha de elaboración </span>
@@ -57,10 +57,10 @@
                         <input class="tamaño3" name="descripcion" type="text" [(ngModel)]="obj_ajustecontable.descripcion">
                     </td>
                     <td class="tamaño2">
-                        <input class="tamaño2" name="debito" type="number" [(ngModel)]="obj_ajustecontable.debito" (ngModelChange)="calcularTotales()">
+                        <input class="tamaño2" style="text-align: end;" name="debito" type="number" [(ngModel)]="obj_ajustecontable.debito" (ngModelChange)="calcularTotales()">
                     </td>
                     <td class="tamaño2">
-                        <input class="tamaño2" name="credito" type="number" [(ngModel)]="obj_ajustecontable.credito" (ngModelChange)="calcularTotales()">
+                        <input class="tamaño2" style="text-align: end;" name="credito" type="number" [(ngModel)]="obj_ajustecontable.credito" (ngModelChange)="calcularTotales()">
                     </td>
                 </tr>
             </tbody>
@@ -82,10 +82,10 @@
                         <input class="tamaño3" name="descripcion2" type="text" [(ngModel)]="obj_ajustecontable.descripcion2">
                     </td>
                     <td class="tamaño2">
-                        <input class="tamaño2" name="debito2" type="number" [(ngModel)]="obj_ajustecontable.debito2" (ngModelChange)="calcularTotales()">
+                        <input class="tamaño2" style="text-align: end;" name="debito2" type="number" [(ngModel)]="obj_ajustecontable.debito2" (ngModelChange)="calcularTotales()">
                     </td>
                     <td class="tamaño2">
-                        <input class="tamaño2" name="credito2" type="number" [(ngModel)]="obj_ajustecontable.credito2" (ngModelChange)="calcularTotales()">
+                        <input class="tamaño2" style="text-align: end;" name="credito2" type="number" [(ngModel)]="obj_ajustecontable.credito2" (ngModelChange)="calcularTotales()">
                     </td>
                 </tr>
             </tbody>
@@ -169,19 +169,126 @@
             <div class="total">
                 <tr class="total2">
                     <th class="tamaño2">Total</th>
-                    <th class="tamaño2" style="color: black;" [(ngModel)]="obj_ajustecontable.total_debito">{{totalDebito}}</th>
-                    <th class="tamaño2" [(ngModel)]="obj_ajustecontable.total_credito">{{totalCredito}}</th>
+                    <th class="tamaño2" style="text-align: end;" [(ngModel)]="obj_ajustecontable.total_debito">{{totalDebito}}</th>
+                    <th class="tamaño2" style="text-align: end;" [(ngModel)]="obj_ajustecontable.total_credito">{{totalCredito}}</th>
                 </tr>
             </div>
             <div class="total">
                 <tr class="total2">
                     <th class="tamaño2">Diferencia</th>
                     <th class="tamaño2"> </th>
-                    <th class="tamaño2">{{diferencia2}}</th>
+                    <th class="tamaño2" style="text-align: end;">{{diferencia2}}</th>
                     <span style="color: red;" *ngIf="validar_diferencia === false">La diferencia debe ser 0</span>
                 </tr>
             </div>
         </div>
     </div>
+</div>
+
+<div class="ajustec" id="formajuste" *ngIf="form_ajuste == false">
+    <h2>Ajuste contable N° 001</h2>
+    <div class="ajusteconten">
+        <span>Fecha de elaboración </span>
+        <span class="user">{{obj_ajustecontable.fecha}}</span>
+    </div>
+    <div class="ajustecont">
+        <div class="usuario">
+            <span>Usuario: </span>
+            <span class="user">Kevin Andres Arango</span>
+        </div>
+    </div>
+    <div class="table fluid">
+        <table class="mytable">
+            <thead class="tablefact">
+                <tr class="headtable">
+                    <th class="tamaño2">
+                        Código
+                    </th>
+                    <th class="tamaño3">
+                        Cuenta contable
+                    </th>
+                    <th class="tamaño3">
+                        Tercero
+                    </th>
+                    <th class="tamaño3">
+                        Descripción
+                    </th>
+                    <th class="tamaño2">
+                        Débito
+                    </th>
+                    <th class="tamaño2">
+                        Crédito
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="tablefacts"> <!--Primer fila-->
+                <tr class="infotable">
+                    <td class="tamaño2 td">
+                        {{dato}}
+                    </td>
+                    <td class="codigo tamaño3" style="color: black;">
+                        {{selectedCuenta}}
+                    </td>
+                    <td  class="codigo tamaño3">
+                        {{selectedProveedor}}
+                    </td>
+                    <td class="tamaño3">
+                        {{obj_ajustecontable.descripcion}}
+                    </td>
+                    <td class="tamaño2" style="text-align: end;">
+                        {{obj_ajustecontable.debito | currency}}
+                    </td>
+                    <td class="tamaño2" style="text-align: end;">
+                        {{obj_ajustecontable.credito | currency}}
+                    </td>
+                </tr>
+            </tbody>
+            <tbody class="tablefacts"> <!--Segunda fila-->
+                <tr class="infotable">
+                    <td class="tamaño2 td">
+                        {{dato}}
+                    </td>
+                    <td class="codigo tamaño3" style="color: black;" [(ngModel)]="obj_ajustecontable.fo_cuenta2">
+                        {{selectedCuenta2}}
+                    </td>
+                    <td  class="codigo tamaño3">
+                        {{selectedProveedor2}}
+                    </td>
+                    <td class="tamaño3">
+                        {{obj_ajustecontable.descripcion2}}
+                    </td>
+                    <td class="tamaño2" style="text-align: end;">
+                        {{obj_ajustecontable.debito2 | currency}}
+                    </td>
+                    <td class="tamaño2" style="text-align: end;">
+                        {{obj_ajustecontable.credito2 | currency}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="foot2">
+        <div class="secondinfor">
+            <div class="total">
+                <tr class="total2">
+                    <th class="tamaño">Total</th>
+                    <th class="tamaño2" style="text-align: end;">{{totalDebito | currency}}</th>
+                    <th class="tamaño2" style="text-align: end;">{{totalCredito | currency}}</th>
+                </tr>
+            </div>
+            <div class="total">
+                <tr class="total2">
+                    <th class="tamaño">Diferencia</th>
+                    <th class="tamaño2"> </th>
+                    <th class="tamaño2" style="text-align: end;">{{diferencia2 | currency}}</th>
+                </tr>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="imput-secods botones" *ngIf="form_ajuste == false">
+    <button class="button-back-save" (click)="imprimirRecibo()"> Imprimir</button>
+    <button class="button-back-save" (click)="generarPDF()"> Descargar</button>
 </div>
 

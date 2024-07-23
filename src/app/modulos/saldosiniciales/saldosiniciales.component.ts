@@ -4,6 +4,8 @@ import { CuentasService } from 'src/app/servicios/cuentas.service';
 import { ProveedorService } from 'src/app/servicios/proveedor.service';
 import { SaldoinicialService } from 'src/app/servicios/saldoinicial.service';
 import Swal from 'sweetalert2';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 @Component({
   selector: 'app-saldosiniciales',
@@ -42,6 +44,7 @@ export class SaldosinicialesComponent {
   totalCredito = 0;
   diferencia2 = 0;
   consecutivo:any;
+  form_saldo = true;
 
   obj_saldoinicial = {
     fo_proveedor: 0,
@@ -238,7 +241,7 @@ export class SaldosinicialesComponent {
       timer: 1500
     });
 
-    this.limpiar()
+    this.form_saldo= false;
   }
 
   //---------------Función de escoger-------------------------------------------------------------------------------------------------------
@@ -284,5 +287,57 @@ export class SaldosinicialesComponent {
       this.showFormulariopro2 = false; // Para ocultar el formulario
       this.pro2 = this.selectedProveedor2;
     }
+  }
+
+    //----------------------Función generar PDF-------------------------------------------------------------------------------------------
+  generarPDF(): void {
+    const data = document.getElementById('formsaldo');
+    if (data) {
+      html2canvas(data, { scale: 2 }).then(canvas => {
+        const imgWidth = 197; // Ancho de una hoja A4 en horizontal
+        const pageHeight = 210; // Altura de una hoja A4 en horizontal
+        let imgHeight = canvas.height * imgWidth / canvas.width;
+        let heightLeft = imgHeight;
+  
+        const contentDataURL = canvas.toDataURL('image/png');
+        const pdf = new jsPDF('l', 'mm', 'a4'); // Cambiado a 'l' para orientación horizontal
+  
+        let position = 0;
+  
+        pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+  
+        while (heightLeft > 0) {
+          position = heightLeft - imgHeight;
+          pdf.addPage();
+          pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+          heightLeft -= pageHeight;
+        }
+  
+        const currentDate = new Date();
+        const formattedDate = currentDate.toLocaleDateString();
+        const formattedTime = currentDate.toLocaleTimeString();
+        pdf.setFontSize(12);
+        pdf.text(`Fecha de generación: ${formattedDate} ${formattedTime}`, 10, pageHeight - 10);
+        pdf.save('Saldo_inicial.pdf');
+      });
+    }
+
+    this.limpiar();
+    this.form_saldo = false;
+  }
+  
+  //---------------Función para imprimir el saldo inicial------------------------------------------------------------------------------------
+  imprimirRecibo(): void {
+    const printContents = document.getElementById('formsaldo')!.innerHTML;
+    const originalContents = document.body.innerHTML;
+
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
+    window.location.reload();
+
+    this.limpiar();
+    this.form_saldo = false;
   }
 }
