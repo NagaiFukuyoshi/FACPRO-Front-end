@@ -7,6 +7,12 @@ import { Component } from '@angular/core';
 })
 export class NavComponent {
 
+  rol: any;
+
+  ngOnInit():void{
+    this.rol = sessionStorage.getItem("rol");
+  }
+
 }
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="creartercero">
+        <div class="header">
+            <div class="subheader1">
+                <h2>Crear usuario</h2>
+            </div>    
+        </div>
+        <div class="creartercerocont">
+        </div>  
+        <div class="info">
+            <div class="infotercero">
+                <div class="tipotercero">
+                    <span>Rol</span>
+                    <select name="tipotercero" id="tipotercero" [(ngModel)]="usuario.fo_rol">
+                        <option value="0" label="Seleccione rol" selected disabled></option>
+                        <option *ngFor="let itemt of rol" [value]="itemt.id_rol">{{itemt.nombre}}</option>
+                    </select>
+                </div>
+                <div class="nombres">
+                    <span>Nombres</span>
+                    <input type="text" required="required" [(ngModel)]="usuario.nombres">
+                    <span style="color:red" *ngIf="validar_nombres == false">Inserte los nombres</span>
+                </div>
+                <div class="apellidos">
+                    <span>Apellidos</span>
+                    <input type="text" required="required" [(ngModel)]="usuario.apellidos">
+                    <span style="color:red" *ngIf="validar_apellidos == false">Inserte los apellidos</span>
+                </div>
+                <div class="email">
+                    <span>Correo</span>
+                    <input type="email" required="required" [(ngModel)]="usuario.correo">
+                    <span style="color:red" *ngIf="validar_correo == false">Inserte el correo</span>
+                </div>
+                <div class="usuario">
+                    <span>Usuario</span>
+                    <input type="text" required="required" [(ngModel)]="usuario.usuario">
+                    <span style="color:red" *ngIf="validar_usuario == false">Inserte el usuario</span>
+                </div>
+                <div class="apellidos">
+                    <span>Contraseña</span>
+                    <input type="password" required="required" [(ngModel)]="usuario.password">
+                    <span style="color:red" *ngIf="validar_password == false">Inserte la contraseña</span>
+                </div>
+            </div>
+        </div>
+        <div class="imput-secods">
+            <button class="button-back-save"><a href="login">Atrás</a></button>
+            <button class="button-back-save" (click)="validar()">Crear</button>
+        </div>  
+    </div>
+</div>

@@ -36,6 +36,8 @@ import { LoginComponent } from './login/login.component';
 import { CrearproveedorComponent } from './terceros/crearproveedor/crearproveedor.component';
 import { CrearusuarioComponent } from './terceros/crearusuario/crearusuario.component';
 import { NoEncontroComponent } from './no-encontro/no-encontro.component';
+import { CambiarpasswprdComponent } from './modulos/cambiarpasswprd/cambiarpasswprd.component';
+import { CrearcuentaComponent } from './crearcuenta/crearcuenta.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +70,9 @@ import { NoEncontroComponent } from './no-encontro/no-encontro.component';
     LoginComponent,
     CrearproveedorComponent,
     CrearusuarioComponent,
-    NoEncontroComponent
+    NoEncontroComponent,
+    CambiarpasswprdComponent,
+    CrearcuentaComponent
   ],
   imports: [
     BrowserModule,

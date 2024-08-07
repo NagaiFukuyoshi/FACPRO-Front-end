@@ -1,0 +1,74 @@
+<div class="changepassword" *ngIf="newpassword == false">
+    <div class="header">
+        <div class="subheader1">
+            <h2>Cambiar contraseña</h2>
+        </div>    
+    </div>
+    <div class="infopassword">
+        <div class="email">
+            <span>Correo electrónico</span>
+            <input type="email" required="required" [(ngModel)]="correo">
+        </div>
+        <div class="imput-secods">
+            <button class="button-back-save" (click)="validarcorreo()"> Enviar</button>
+        </div>  
+    </div>
+    <div class="span">
+        <span style="color:red" *ngIf="validar_correo == true">El correo no esta registrado</span>
+    </div>
+</div>
+
+<div class="newpassword" *ngIf="newpassword == true">
+    <div class="header">
+        <div class="subheader1">
+            <h2>Cambiar contraseña</h2>
+        </div>    
+    </div>
+    <div class="contenedor">
+        <div class="password">
+            <span>Nueva contraseña</span>
+            <input type="password" required="required" [(ngModel)]="usuario.password">
+        </div> 
+        <div class="password">
+            <span>Repita la contraseña</span>
+            <input type="password" required="required" [(ngModel)]="password2">
+
+        </div> 
+    </div>
+    <div class="span2">
+        <span style="color:red" *ngIf="validar_contrasena == true">Las contraseñas deben coincidir</span>
+    </div>
+    <div class="imput-secods">
+        <button class="button-back-save" (click)="passwordiguales()"> Guardar</button>
+    </div> 
+</div>
+
+<div class="creartercerocont" *ngIf="info == true">
+    <div class="tipotercero">
+        <span>Rol  </span>
+        <select name="tipotercero" id="tipotercero" [(ngModel)]="usuario.fo_rol">
+            <option value="0" label="Seleccione rol" selected disabled></option>
+            <option *ngFor="let itemt of rol" [value]="itemt.id_rol">{{itemt.nombre}}</option>
+        </select>
+    </div>
+</div>  
+<div class="info" *ngIf="info == true">
+    <div class="infotercero">
+        <div class="nombres">
+            <span>Nombres</span>
+            <input type="text" required="required" [(ngModel)]="usuario.nombres">
+        </div>
+        <div class="apellidos">
+            <span>Apellidos</span>
+            <input type="text" required="required" [(ngModel)]="usuario.apellidos">
+        </div>
+        <div class="email">
+            <span>Correo</span>
+            <input type="email" required="required" [(ngModel)]="usuario.correo">
+        </div>
+        <div class="usuario">
+            <span>Usuario</span>
+            <input type="text" required="required" [(ngModel)]="usuario.usuario">
+        </div>
+    </div>
+</div>

@@ -115,12 +115,6 @@ tr, td{
   overflow: hidden;
 }
 
-#formcomprobante {
-  width: 100%;
-  height: auto;
-  overflow: visible;
-}
-
 .botones{
   display: flex;
   width: 1050px;
@@ -131,6 +125,12 @@ tr, td{
   button{
     margin: 20px;
   }
+}
+
+#formcomprobante {
+  width: 100%;
+  height: auto;
+  overflow: visible;
 }
 
 .foot2{

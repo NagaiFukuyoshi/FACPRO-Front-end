@@ -1,151 +1,144 @@
-.editartercero{
-    padding: 20px 20px;
-    height: 91vh;
-    display: flex;
-    flex-direction: column;
-    max-width: 1200px;
+.creartercero{
+  padding: 20px 20px;
+  width: 80vh;
+  height: 91vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 80vh;
 }
 
-.editartercero div{
-    padding: 7px 0;
-}
-
-.export{
-    display: flex;
-    justify-content: space-between;
-}
-
-.input-tercero{
-    border-radius: 5px;
-    border: 1px solid;
-    width: 230px;
-}
-
-.editartercerocont{
-    width: 400px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.formato{
-    width: 460px;
-    display: flex;
-    justify-content: space-between;
+.creartercero div{
+  padding: 7px 0;
 }
 
 .imput-secods{
-    width: 180px;
-    display: flex;
-    justify-content: space-around;
-}
-
-.button-back-save,
-.buscar{
-    background-color: var(--botones);
-    color: white;
-    padding: 0.2rem 1rem;
-    border-radius: 10px;
-}
-
-.table{
-    display: flex;
-  }
-
-tr{
-    border: none;
-}
-
-.cant1{
-  width: 240px;
-}
-
-.cant2{
-  width: 20px;
-}
-
-.cantidad{
+  width: 180px;
   display: flex;
+  justify-content: space-around;
 }
 
-.mytable th, 
-.mytable input,
-th{
-    font-size: 14px;
-    width: 260px;
+.creartercerocont{
+  display: flex;
+  justify-content: space-between;
+  width: 700px;
+  max-width: 80%;
 }
 
-.headtable{
-    background-color: var(--bs-link-color);
-    text-align: center;
+select{
+  margin: 0;
+  border-radius: 5px;
+}
+
+.numeroidentificacion input{
+  margin: 0 5px;
+  border: none;
+  border-bottom: 1px solid black; 
+}
+
+.info{
+  width: 100px;
+  max-width: 80%;
+}
+
+.infotercero{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 1030px;
+  gap: 10px;
+}
+
+.infotercero input{
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.nombres,
+.apellidos,
+.email,
+.usuario,
+.contraseña{
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+}
+
+.responsabilidades{
+  display: flex;
+  width: 600px;
 }
 
 span{
-    font-weight: 650;
+  font-weight: 650;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-back-save{
+  background-color: var(--botones);
+  color: white;
+  padding: 0.2rem 1rem;
+  border-radius: 10px;
+}
+
+.headtable{
+  background-color: var(--bs-link-color);
+  text-align: center;
 }
 
 /* Estilos para hacer responsive */
 @media only screen and (max-width: 600px) {
-    .editartercero{
-      margin-left: -150px;
-    }
-  
-    h2{
-      font-size: 19px;
-    }
-  
-    .editartercero input{
-      width: 250px;
-    }
-
-    .editartercerocont{
-        flex-direction: column;
-        width: 260px;
-        align-items: flex-start;
-    }
-
-    .formato{
-        display: flex;
-        flex-direction: column;
-    }
-
-    label{
-        display: flex;
-        flex-direction: row;
-        margin-bottom: -20px;
-        margin-left: 50px;
-    }
-  
-    .mytable {
-      overflow-x: auto;
-      display: block;
-      width: 100%;
-    }
-
-    .headtable{
-        width: 248px;
-    }
-  
-    .headtable,
-    .infotable {
-      display: flex;
-      flex-direction: column;
-    }
-  
-    .table{
-      display: flex;
-      flex-direction: column;
-    }
-  
-    .headtable th,
-    .infotable td,
-    .infotable input {
-      width: 200px;
-      text-align: center;
-    }
-  
-    .infotable input{
-      width: 240px;
-      margin-left: -5px;
-    }
+  .creartercero{
+  margin-left: -150px;
   }
+
+  .header{
+      display: flex;
+      flex-direction: column;
+  }
+
+  .containerprod{
+      display: flex;
+      flex-direction: column;
+  }
+
+  .nombreprod,
+  .modelo,
+  .marca,
+  .descripcion{
+      display: flex;
+      flex-direction: column;
+  }
+
+  textarea{
+      width: 250px;
+  }
+
+  h2{
+      font-size: 19px;
+  }
+
+  .creartercero input{
+      width: 250px;
+  }
+
+  .creartercerocont{
+      flex-direction: column;
+      width: 260px;
+      align-items: flex-start;
+  }
+
+  .crearterceroconten{
+      width: 250px;
+  }
+
+  .numeroidentificacion,
+  .infotercero,
+  .responsabilidades{
+      display: flex;
+      flex-direction: column;
+  }
+}

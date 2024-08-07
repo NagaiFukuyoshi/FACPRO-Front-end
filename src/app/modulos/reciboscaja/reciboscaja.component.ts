@@ -18,6 +18,7 @@ export class ReciboscajaComponent implements OnInit {
   nombres: any;
   apellidos: any;
   id:any;
+  reciboNumero = 10;
   dato: any;
   dato2:any;
   dato3:any;
@@ -253,7 +254,7 @@ export class ReciboscajaComponent implements OnInit {
     }
   }
 
-  //----------------------Función generar PDF-------------------------------------------------------------------------------------------
+  //---------------Función generar PDF------------------------------------------------------------------------------------------------------
   generarPDF(): void {
     const data = document.getElementById('formrecibo');
     if (data) {
@@ -289,9 +290,10 @@ export class ReciboscajaComponent implements OnInit {
 
     this.limpiar();
     this.form_recibo = false;
+    this.reciboNumero = this.reciboNumero + 1;
   }
   
-  //---------------Función para imprimir el recibo-------------------------------------------------------------------------------------------
+  //---------------Función para imprimir el recibo------------------------------------------------------------------------------------------
   imprimirRecibo(): void {
     const printContents = document.getElementById('formrecibo')!.innerHTML;
     const originalContents = document.body.innerHTML;
@@ -303,6 +305,7 @@ export class ReciboscajaComponent implements OnInit {
 
     this.limpiar();
     this.form_recibo = false;
+    this.reciboNumero = this.reciboNumero + 1;
   }
 }
 

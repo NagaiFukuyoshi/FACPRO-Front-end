@@ -1,5 +1,5 @@
 <div class="recibocaja" id="recibocaja" *ngIf="form_recibo == false">
-    <h2>Recibo de caja N° 001</h2>
+    <h2>Recibo de caja N° 0{{reciboNumero}}</h2>
         <div class="recibocajacont">
             <span>Cliente </span>
             <input type="text" required="required" placeholder="Nombre cliente" class="input-client" (keydown.enter)="filtrarcli(dato2)" [(ngModel)]="dato2">
@@ -178,7 +178,7 @@
 </div>
 
 <div class="recibocaja formcaja" id="formrecibo" *ngIf="form_recibo == true">
-    <h2>Recibo de caja N° 001</h2>
+    <h2>Recibo de caja N° 0{{reciboNumero}}</h2>
         <div class="recibocajacont">
             <span>Cliente </span>
             <span style="font-weight: 100;" class="user">{{selectedCliente}}</span>

@@ -1,0 +1,71 @@
+.changepassword{
+    width: 1100px;
+    padding: 220px 20px;
+    
+    h2{
+        text-align: center;
+        font-size: 40px;
+        padding-bottom: 20px;
+    }
+
+    .infopassword,
+    .span{
+        display: flex;
+        justify-content: center;
+    }
+
+    span{
+        padding: 0 10px 0 0;
+    }
+
+    input{
+        width: 250px;
+    }
+}
+
+.imput-secods{
+    width: 180px;
+    display: flex;
+    justify-content: space-around;
+
+    .button-back-save{
+        background-color: var(--botones);
+        color: white;
+        padding: 0 1rem;
+        border-radius: 10px;
+        margin-left: -80px;
+    }
+}
+
+.newpassword{
+    width: 1100px;
+    padding: 180px 20px;
+
+    h2{
+        text-align: center;
+        font-size: 40px;
+        padding-bottom: 20px;
+    }
+
+    .contenedor{
+        display: flex;
+        flex-direction: column;
+    
+        div{
+            padding-bottom: 20px;
+        }
+
+        span{
+            padding: 0 10px 0 0;
+        }
+    
+        input{
+            width: 250px;
+        }
+    }
+}
+
+.span2{
+    margin-left: 150px;
+    padding-bottom: 10px;
+}

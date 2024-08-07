@@ -25,6 +25,7 @@ export class LoginComponent {
     sessionStorage.setItem("apellidos", "");
     sessionStorage.setItem("correo", "");
     sessionStorage.setItem("usuario", "");
+    sessionStorage.setItem("rol", "");
   }
 
   //----------------------Función consulta------------------------------------------------------------------------------------------------
@@ -39,6 +40,7 @@ export class LoginComponent {
             sessionStorage.setItem("apellidos", this.usuario[0]['apellidos']);
             sessionStorage.setItem("correo", this.usuario[0]['correo']);
             sessionStorage.setItem("usuario", this.usuario[0]['usuario']);
+            sessionStorage.setItem("rol", this.usuario[0]['fo_rol']);
             this.router.navigate(['/dashboard']);
           } else{
             this.error = true;

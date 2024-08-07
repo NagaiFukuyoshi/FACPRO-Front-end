@@ -146,6 +146,7 @@ export class EditarproductoComponent {
     }
   }
 
+  //----------------------Función editar---------------------------------------------------------------------------------------------------
   editar(){
     this.sprod.editar(this.id_producto, this.obj_producto).subscribe((datos:any)=>{
       if(datos['resultado'] == 'ok'){
@@ -189,7 +190,7 @@ export class EditarproductoComponent {
     this.edit = false;
   }
 
-  //----------------------Función generar Excel-----------------------------------------------------------------------------------------
+  //----------------------Función generar Excel-------------------------------------------------------------------------------------------
   generarExcel(): void {
     const tableData: any[][] = [
       ['Productos'], // Título

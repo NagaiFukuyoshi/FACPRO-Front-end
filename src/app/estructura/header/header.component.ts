@@ -12,12 +12,23 @@ export class HeaderComponent {
 
   constructor(private router:Router){}
 
+  nombres: any;
+  apellidos: any;
+  rol: any;
+
+  ngOnInit(): void {
+    this.nombres = sessionStorage.getItem('nombres');
+    this.apellidos = sessionStorage.getItem('apellidos');
+    this.rol = sessionStorage.getItem('rol');
+  }
+
   cerrar(){
     sessionStorage.setItem("id", "");
     sessionStorage.setItem("nombres", "");
     sessionStorage.setItem("apellidos", "");
     sessionStorage.setItem("correo", "");
     sessionStorage.setItem("usuario", "");
+    sessionStorage.setItem("rol", "");
     this.router.navigate(['']);
   }
 

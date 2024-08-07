@@ -34,6 +34,8 @@ import { CrearproveedorComponent } from './terceros/crearproveedor/crearproveedo
 import { CrearusuarioComponent } from './terceros/crearusuario/crearusuario.component';
 import { NoEncontroComponent } from './no-encontro/no-encontro.component';
 import { validaruserGuard } from './guard/validaruser.guard';
+import { CambiarpasswprdComponent } from './modulos/cambiarpasswprd/cambiarpasswprd.component';
+import { CrearcuentaComponent } from './crearcuenta/crearcuenta.component';
 
 const routes: Routes = [
   {path: '', component: PrincipalComponent,
@@ -63,9 +65,12 @@ const routes: Routes = [
       {path: 'libroauxiliartercero', component: LibroauxiliarterceroComponent, canActivate: [validaruserGuard]},
       {path: 'crearproveedor', component: CrearproveedorComponent, canActivate: [validaruserGuard]},
       {path: 'crearusuario', component: CrearusuarioComponent, canActivate: [validaruserGuard]},
+      {path: 'cambiarpassword', component: CambiarpasswprdComponent, canActivate: [validaruserGuard]},
+      
     ]
   },
     {path: 'login', component: LoginComponent},
+    {path: 'crearcuenta', component: CrearcuentaComponent},
     {path: '**', component: NoEncontroComponent}
   ];
 

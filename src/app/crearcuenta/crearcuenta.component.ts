@@ -1,15 +1,15 @@
 import { Component } from '@angular/core';
-import { ClienteService } from 'src/app/servicios/cliente.service';
-import { RolService } from 'src/app/servicios/rol.service';
-import { UsuarioService } from 'src/app/servicios/usuario.service';
 import Swal from 'sweetalert2';
+import { UsuarioService } from '../servicios/usuario.service';
+import { RolService } from '../servicios/rol.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-crearusuario',
-  templateUrl: './crearusuario.component.html',
-  styleUrls: ['./crearusuario.component.scss']
+  selector: 'app-crearcuenta',
+  templateUrl: './crearcuenta.component.html',
+  styleUrls: ['./crearcuenta.component.scss']
 })
-export class CrearusuarioComponent {
+export class CrearcuentaComponent {
 
   rol:any;
 
@@ -29,11 +29,12 @@ export class CrearusuarioComponent {
   validar_usuario=true;
 
   ngOnInit(): void{
+    this.limpiar();
     this.consulta();
   }
 
 
-  constructor(private susuario:UsuarioService, private srol: RolService){}
+  constructor(private susuario:UsuarioService, private srol: RolService, private router:Router){}
 
   //----------------------Función validar campos------------------------------------------------------------------------------------------
   validar(){
@@ -100,6 +101,7 @@ export class CrearusuarioComponent {
       timer: 1500
     });
     this.limpiar()
+    this.router.navigate(['/dashboard']);
   }
 
   //----------------------Función de consulta----------------------------------------------------------------------------------------------
@@ -108,5 +110,5 @@ export class CrearusuarioComponent {
       this.rol = resultado;
     });
   }
-}
 
+}

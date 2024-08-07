@@ -34,12 +34,12 @@
                         </nav>
                     </div>
                     <!--Editar factura-->
-                    <a class="nav-link" href="editarfactura">
+                    <a class="nav-link" href="editarfactura" *ngIf="rol == 'prueba'">
                         <div class="sb-nav-link-icon"><i class="fa-solid fa-pen-to-square"></i></div>
                         Editar factura
                     </a>
                     <!--Consultar factura-->
-                    <a class="nav-link" href="buscarfactura">
+                    <a class="nav-link" href="buscarfactura" *ngIf="rol == 'prueba'">
                         <div class="sb-nav-link-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
                         Consultar factura
                     </a>
@@ -59,13 +59,13 @@
                             <a class="nav-link" href="crearterceros">Crear cliente</a>
                             <a class="nav-link" href="crearproveedor">Crear proveedor</a>
                             <a class="nav-link" href="crearusuario">Crear usuario</a>
-                            <a class="nav-link" href="editarterceros">Editar Tercero</a>
+                            <a class="nav-link" href="editarterceros">Editar usuario</a>
                             <a class="nav-link" href="eliminarterceros">Eliminar Tercero</a>
                         </nav>
                     </div>
                     
                     <!--Reportes-->
-                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseReportes" aria-expanded="false" aria-controls="collapseReportes">
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseReportes" aria-expanded="false" aria-controls="collapseReportes" *ngIf="rol == 'prueba'">
                         <div class="sb-nav-link-icon"><i class="fa-regular fa-folder"></i></div>
                         Reportes
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -80,7 +80,7 @@
                         </nav>
                     </div>
                     <!--Configuración-->
-                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseConfiguracion" aria-expanded="false" aria-controls="collapseConfiguracion">
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseConfiguracion" aria-expanded="false" aria-controls="collapseConfiguracion" *ngIf="rol == 'prueba'">
                         <div class="sb-nav-link-icon"><i class="fa-solid fa-gear"></i></div>
                         Configuración
                         <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
