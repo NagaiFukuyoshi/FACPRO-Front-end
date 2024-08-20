@@ -74,5 +74,18 @@ input {
     color: red;
 }
 
+@media only screen and (max-width: 900px){
+    .login {
+        height: 95vh;
+        padding: 0 10px;
+    }
+
+    h4,
+    h5,
+    input{
+        padding: 0 10px;
+    }
+}
+
 
 

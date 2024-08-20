@@ -164,7 +164,7 @@
         <textarea resize="none" class="Descripcion" name="Descripción" id="Descripción" cols="90" rows="5" placeholder="Descripción" [(ngModel)]="obj_compra.descripcion"></textarea>
 </div>   
 
-<div class="facturacompra forcompra" id="forcompra" *ngIf="form_compra == false">
+<div class="facturacompra forcompra" id="forcompra" *ngIf="form_compra == true">
     <h2>Factura de compra N° 001</h2>
         <div class="facturacompracont">
             <span>Proveedor</span>
@@ -284,7 +284,7 @@
             {{obj_compra.descripcion}}
         </span>
 </div>
-<div class="imput-secods botones" *ngIf="form_compra == false">
+<div class="imput-secods botones" *ngIf="form_compra == true">
     <button class="button-back-save" (click)="imprimirRecibo()"> Imprimir</button>
     <button class="button-back-save" (click)="generarPDF()"> Descargar</button>
 </div>

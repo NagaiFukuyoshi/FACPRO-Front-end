@@ -45,3 +45,13 @@ h1 {
 span {
     font-size: 40px;
 }
+
+@media only screen and (max-width: 900px){
+    span, h1 {
+        font-size: 30px;
+    }
+
+    .container{
+        min-width: 840px;
+    }
+}

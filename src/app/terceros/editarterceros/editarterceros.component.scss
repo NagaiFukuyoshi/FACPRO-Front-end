@@ -90,55 +90,19 @@ span{
 }
 
 /* Estilos para hacer responsive */
-@media only screen and (max-width: 600px) {
-  .creartercero{
-  margin-left: -150px;
+@media only screen and (max-width: 900px){
+  .infotercero{
+      width: 700px;
   }
 
   .header{
-      display: flex;
-      flex-direction: column;
+      min-width: 500px;
   }
 
-  .containerprod{
-      display: flex;
-      flex-direction: column;
-  }
-
-  .nombreprod,
-  .modelo,
-  .marca,
-  .descripcion{
-      display: flex;
-      flex-direction: column;
-  }
-
-  textarea{
-      width: 250px;
-  }
-
-  h2{
-      font-size: 19px;
-  }
-
-  .creartercero input{
-      width: 250px;
-  }
-
-  .creartercerocont{
-      flex-direction: column;
-      width: 260px;
-      align-items: flex-start;
-  }
-
-  .crearterceroconten{
-      width: 250px;
-  }
-
-  .numeroidentificacion,
-  .infotercero,
-  .responsabilidades{
-      display: flex;
-      flex-direction: column;
+  .nombres,
+  .apellidos,
+  .email,
+  .usuario{
+      width: 320px;
   }
 }

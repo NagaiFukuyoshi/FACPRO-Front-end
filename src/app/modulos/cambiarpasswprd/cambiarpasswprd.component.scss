@@ -69,3 +69,11 @@
     margin-left: 150px;
     padding-bottom: 10px;
 }
+
+/* Estilos para hacer responsive */
+@media only screen and (max-width: 900px){
+    .changepassword,
+    .newpassword{
+        width: 830px;
+    }
+}

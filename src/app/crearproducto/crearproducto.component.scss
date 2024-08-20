@@ -68,48 +68,8 @@ span{
 }
 
 /* Estilos para hacer responsive */
-@media only screen and (max-width: 600px) {
-    .crearproducto{
-        margin-left: -150px;
-    }
-
-    .header{
-        display: flex;
-        flex-direction: column;
-    }
-
+@media only screen and (max-width: 900px){
     .containerprod{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .nombreprod,
-    .modelo,
-    .marca,
-    .descripcion{
-        display: flex;
-        flex-direction: column;
-    }
-
-    textarea{
-        width: 250px;
-    }
-
-    h2{
-        font-size: 19px;
-    }
-
-    .crearproducto input{
-        width: 250px;
-    }
-
-    .crearproductocont{
-        flex-direction: column;
-        width: 260px;
-        align-items: flex-start;
-    }
-
-    .crearproductoconten{
-        width: 250px;
+        width: 650px;
     }
 }

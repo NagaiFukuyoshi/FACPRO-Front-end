@@ -209,90 +209,33 @@ span{
     width: 100px;
 }
 
-
 /* Estilos para hacer responsive */
-@media only screen and (max-width: 600px) {
-  .facturacompra{
-    margin-left: -150px;
+@media only screen and (max-width: 900px) {
+  .tamaño{
+    max-width: 55px;
+  }
+  
+  .tamaño2{
+    max-width: 80px;
+    min-width: 80px;
+  }
+  
+  .tamaño3{
+    max-width: 185px;
+    min-width: 185px;
   }
 
-  h2{
-    font-size: 19px;
+  .user__rol{
+    max-width: 500px;
   }
 
-  .facturacompracont input{
-    width: 250px;
+  .navbar-brand{
+    max-width: 170px;
   }
 
-  .facturacompracont {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .facturacompraconten{
-    display: flex;
-    flex-direction: column;
-  }
-
-  .imput-secods {
-    display: flex;
-    margin-left: 30px;
-  }
-
-  .button-back-save {
-    margin-bottom: 10px;
-  }
-
-  .mytable {
-    overflow-x: auto;
-    display: block;
-    width: 100%;
-  }
-
-  .headtable,
-  .infotable {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .table{
-    display: flex;
-    flex-direction: column;
-  }
-
-  .headtable th,
-  .infotable td,
-  .infotable input {
-    width: 230px;
-    text-align: center;
-  }
-
+  .facturacompraconten,
   .foot{
-    display: flex;
-    flex-direction: column;
-  }
-
-  .infotable input{
-    width: 240px;
-    margin-left: -5px;
-  }
-
-  .add {
-    text-align: start;
-    margin-top: -30px;
-  }
-
-  .total{
-    font-size: 11px;
-  }
-
-  .total tr,
-  .total th{
-    display: flex;
-    width: 280px;
-  }
-
-  textarea{
-    width: 260px;
+    max-width: 100%;
+    min-width: 785px;
   }
 }

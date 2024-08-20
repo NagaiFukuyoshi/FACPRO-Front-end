@@ -14,3 +14,18 @@
 .nav-item{
     right: 0;
 }
+
+@media only screen and (max-width: 900px){
+    .navbar-brand,
+    .user {
+        font-size: 20px;
+    }
+
+    .sb-topnav{
+        max-width: 840px;
+    }
+
+    .user__rol{
+        min-width: 500px;
+    }
+}
